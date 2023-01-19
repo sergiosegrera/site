@@ -17,5 +17,9 @@
     "astro": "^1.9.0",
     "astro-i18next": "^1.0.0-beta.15",
     "tailwindcss": "^3.2.4"
+  },
+  "devDependencies": {
+    "prettier": "^2.8.3",
+    "prettier-plugin-tailwindcss": "^0.2.1"
   }
 }
