@@ -1,0 +1,23 @@
+---
+import { t, changeLanguage } from "i18next";
+import { LanguageSelector } from "astro-i18next/components";
+import Layout from "../../layouts/Layout.astro";
+
+changeLanguage("fr");
+
+const title = "Sergio Segrera";
+---
+
+<Layout title={title} description={t("home.description")}>
+  <main class="w-screen h-screen gap-4 p-8 bg-stone-50 flex flex-col">
+    <LanguageSelector class="bg-stone-50 place-self-end" />
+    <section
+      class="h-full w-full flex flex-col gap-5 justify-center items-center"
+    >
+      <h1 class="text-7xl">
+        {t("home.header")}<strong>Sergio Segrera</strong>.
+      </h1>
+      <h2 class="text-2xl font-bold">{t("home.subheader")}</h2>
+    </section>
+  </main>
+</Layout>

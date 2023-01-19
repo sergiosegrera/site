@@ -1,0 +1,31 @@
+---
+import i18next, { t } from "i18next";
+import { HeadHrefLangs } from "astro-i18next/components";
+import JostFont from "../components/JostFont.astro";
+import Analytics from "../components/Analytics.astro";
+
+export interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={i18next.language}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <HeadHrefLangs />
+    <JostFont />
+    <Analytics />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
