@@ -1,5 +1,3 @@
-import SpinnerSVG from "../public/spinner.svg";
-
 export default function Spinner() {
   return (
     <svg
