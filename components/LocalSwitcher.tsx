@@ -21,10 +21,7 @@ export default function LocaleSwitcher() {
   return (
     <motion.button
       onClick={() => setIsMenuOpen(!isMenuOpen)}
-      className="relative self-end"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ delay: 2 }}
+      className="relative self-end hover:scale-105 transition duration-300 ease-in-out"
       aria-label="Change language"
     >
       <GlobeIcon />
