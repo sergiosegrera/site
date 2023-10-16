@@ -1,5 +1,4 @@
 import Introduction from "@/components/Introduction";
-import LocaleSwitcher from "@/components/LocalSwitcher";
 import ModelViewer from "@/components/Marcus";
 import { getDictionary } from "@/get-dictionaries";
 import { Locale } from "@/i18n-config";
