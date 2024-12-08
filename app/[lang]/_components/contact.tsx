@@ -2,7 +2,7 @@
 
 import { LucideGithub, LucideLinkedin, LucideMail } from "lucide-react";
 import { useScramble } from "use-scramble";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 
 export default function Contact({ dictionary }: { dictionary: any }) {
   const { ref, replay } = useScramble({
@@ -11,7 +11,7 @@ export default function Contact({ dictionary }: { dictionary: any }) {
   });
 
   return (
-    <motion.div
+    <m.div
       id="contact"
       className="flex flex-col gap-4 text-xs"
       initial={{ opacity: 0 }}
@@ -19,7 +19,7 @@ export default function Contact({ dictionary }: { dictionary: any }) {
       transition={{ duration: 0.5, delay: 3 }}
     >
       <h2 className="text-sm font-medium h-4" ref={ref} onMouseEnter={replay} />
-      <motion.div
+      <m.div
         id="contact-list"
         className="flex flex-col gap-2 text-slate-500"
         initial={{ opacity: 0 }}
@@ -59,7 +59,7 @@ export default function Contact({ dictionary }: { dictionary: any }) {
             sergiosegrera
           </a>
         </div>
-      </motion.div>
-    </motion.div>
+      </m.div>
+    </m.div>
   );
 }

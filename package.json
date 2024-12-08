@@ -10,15 +10,11 @@
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.5.8",
-    "@radix-ui/react-select": "^2.1.2",
-    "@react-three/drei": "^9.120.3",
-    "@react-three/fiber": "^8.17.10",
     "@types/node": "22.10.1",
     "@types/react": "19.0.1",
     "@types/react-dom": "19.0.1",
     "autoprefixer": "10.4.20",
     "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
     "eslint": "9.16.0",
     "eslint-config-next": "15.0.4",
     "framer": "^2.4.1",
@@ -32,12 +28,10 @@
     "tailwind-merge": "^2.5.5",
     "tailwindcss": "3.4.16",
     "tailwindcss-animate": "^1.0.7",
-    "three": "^0.171.0",
     "typescript": "5.7.2",
     "use-scramble": "^2.2.15"
   },
   "devDependencies": {
-    "@types/negotiator": "^0.6.3",
-    "@types/three": "^0.170.0"
+    "@types/negotiator": "^0.6.3"
   }
 }

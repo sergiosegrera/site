@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { LucideExternalLink } from "lucide-react";
-import { motion } from "motion/react";
+import { m } from "motion/react";
 import { useScramble } from "use-scramble";
 
 export default function Projects({ dictionary }: { dictionary: any }) {
@@ -44,7 +44,7 @@ export default function Projects({ dictionary }: { dictionary: any }) {
   };
 
   return (
-    <motion.div
+    <m.div
       id="projects"
       className="flex flex-col gap-4"
       initial={{ opacity: 0 }}
@@ -56,14 +56,14 @@ export default function Projects({ dictionary }: { dictionary: any }) {
         ref={headerRef}
         onMouseEnter={headerReplay}
       />
-      <motion.div
+      <m.div
         id="project-list"
         className="flex flex-col gap-6"
         variants={container}
         initial="hidden"
         animate="show"
       >
-        <motion.div
+        <m.div
           id="ascendo-studio"
           className="grid grid-cols-[48px_1fr] gap-3 items-start"
           variants={item}
@@ -85,8 +85,8 @@ export default function Projects({ dictionary }: { dictionary: any }) {
             </h3>
             <p className="text-xs text-slate-500">{dictionary.ascendoStudio}</p>
           </div>
-        </motion.div>
-        <motion.div
+        </m.div>
+        <m.div
           id="mesmaxillos"
           className="grid grid-cols-[48px_1fr] gap-3 items-start"
           variants={item}
@@ -114,8 +114,8 @@ export default function Projects({ dictionary }: { dictionary: any }) {
             </Link>
             <p className="text-xs text-slate-500">{dictionary.mesmaxillos}</p>
           </div>
-        </motion.div>
-        <motion.div
+        </m.div>
+        <m.div
           id="leadsr"
           className="grid grid-cols-[48px_1fr] gap-3 items-start"
           variants={item}
@@ -143,8 +143,8 @@ export default function Projects({ dictionary }: { dictionary: any }) {
             </Link>
             <p className="text-xs text-slate-500">{dictionary.leasite}</p>
           </div>
-        </motion.div>
-      </motion.div>
-    </motion.div>
+        </m.div>
+      </m.div>
+    </m.div>
   );
 }
