@@ -1,6 +1,13 @@
 {
-  "title": "Sergio Segrera, Développeur Full Stack",
-  "description": "Sergio Segrera est un Développeur Full Stack basé à Montreal. Il est passioné par le developement web et la technologie en general.",
-  "introduction": "Hey! Je suis ",
-  "subtitle": "Je suis un Développeur Full Stack basé à Montreal. Je travaille encore sur se site, à bientôt!"
+  "siteName": "Sergio Segrera",
+  "siteDescription": "Sergio Segrera, Ingénieur Fondateur chez Clarum",
+  "title": "Ingénieur Fondateur",
+  "company": "Clarum",
+  "location": "San Francisco, CA",
+  "description": "Ingénieur fondateur chez Clarum, une startup fintech soutenue par Y Combinator, et ancien de Deloitte, je suis passionné par la création de solutions innovantes pour relever les défis du monde réel. Originaire de Montréal et maintenant basé à San Francisco, j'aime rester actif en pratiquant l'escalade, la course à pied et le yoga, tout en explorant la bonne cuisine et en créant des liens avec les autres. Connectons-nous!",
+  "ascendoStudio": "Un studio de conception web sur mesure où j’ai collaboré avec des clients pour concrétiser leurs visions, en créant des expériences numériques à la fois attrayantes et fonctionnelles, adaptées à leurs besoins.",
+  "mesmaxillos": "Conception et lancement d’un site web professionnel pour une clinique de chirurgie maxillo-faciale, améliorant sa présence en ligne et facilitant l’accès des patients aux informations et services essentiels.",
+  "leasite": "Développement d’un site web de portfolio élégant et intuitif pour un studio de design d’intérieur, mettant en valeur leur travail et leur expertise pour attirer et inspirer des clients.",
+  "previousEndeavors": "Réalisations Précédentes",
+  "contact": "Contact"
 }

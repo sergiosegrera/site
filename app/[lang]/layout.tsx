@@ -4,7 +4,7 @@ import { Inter } from "next/font/google";
 
 import { Locale, i18n } from "../../i18n-config";
 import { getDictionary } from "@/get-dictionaries";
-import GoogleAnalytics from "@/components/GoogleAnalytics";
+import GoogleAnalytics from "./_components/google-analytics";
 
 export async function generateStaticParams() {
   return i18n.locales.map((locale) => ({ lang: locale }));
@@ -12,26 +12,26 @@ export async function generateStaticParams() {
 
 const inter = Inter({ subsets: ["latin"] });
 
-export async function generateMetadata({
-  params,
-}: {
-  params: { lang: Locale };
+export async function generateMetadata(props: {
+  params: Promise<{ lang: Locale }>;
 }): Promise<Metadata> {
+  const params = await props.params;
   const dictionary = await getDictionary(params.lang);
 
   return {
-    title: dictionary.title,
-    description: dictionary.description,
+    title: dictionary.siteName,
+    description: dictionary.siteDescription,
   };
 }
 
-export default function RootLayout({
-  children,
-  params,
-}: {
+export default async function RootLayout(props: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }) {
+  const params = await props.params;
+
+  const { children } = props;
+
   return (
     <html lang={params.lang}>
       <GoogleAnalytics id="G-VQEBLMPXH4" />
