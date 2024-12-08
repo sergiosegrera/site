@@ -5,7 +5,7 @@ import Link from "next/link";
 import { i18n } from "../i18n-config";
 import GlobeIcon from "./icons/GlobeIcon";
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 
 export default function LocaleSwitcher() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
