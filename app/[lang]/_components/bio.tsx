@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "motion/react";
+import { m } from "motion/react";
 
 export default function Bio({ dictionary }: { dictionary: any }) {
   return (
-    <motion.div
+    <m.div
       id="bio"
       className="text-xs text-slate-500"
       initial={{ opacity: 0 }}
@@ -12,6 +12,6 @@ export default function Bio({ dictionary }: { dictionary: any }) {
       transition={{ duration: 0.5, delay: 0.5 }}
     >
       {dictionary.description}
-    </motion.div>
+    </m.div>
   );
 }
