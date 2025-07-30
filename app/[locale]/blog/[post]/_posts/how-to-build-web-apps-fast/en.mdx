@@ -1,0 +1,98 @@
+import DateTime from "@/components/datetime";
+
+# Building Web Apps Fast: A Modern Developer's Guide
+
+<DateTime date="2025-07-07" />
+
+*This is a very opinionated article based on my personal findings of what works best, especially in the modern era of AI-driven development. This is the exact stack I've used to build successful SaaS web apps like [spendobudget.com](https://spendobudget.com) and [claycon.io](https://claycon.io). Your mileage may vary, but these tools and approaches have consistently delivered results for rapid web application development. I have also created a [boilerplate](https://github.com/sergiosegrera/boilerplate) repository that makes starting a new project with this stack a breeze.*
+
+## Introduction
+
+AI has fundamentally changed the speed at which we can build software—what used to take weeks can now be accomplished in days or hours. But this acceleration comes with a hidden trap: without a strong foundation and proper architecture, the rapid pace can create a crushing tech debt burden that eventually slows you down more than traditional development ever did. The key isn't just choosing fast tools—it's architecting your codebase to be ergonomic for both humans and AI. Clean patterns, predictable structures, and well-organized code don't just make your life easier; they make AI assistance dramatically more effective, allowing you to move fast without breaking things.
+
+## The IDE: Cursor
+
+[**Cursor**](https://cursor.sh) has become my go-to IDE because it's built from the ground up with AI assistance in mind making it the most ergonomic DX. Cursor's agent is also very good at understanding your codebase and giving helpful suggestions (especially if you supplied it good context using `.mdc` rules).
+
+## The Full-Stack Solution: Next.js + Server Functions
+
+[**Next.js**](https://nextjs.org) remains the gold standard for full-stack React applications, and one of its biggest advantages is that LLMs are exceptionally good at React and Next.js patterns. Server functions provide type-safe client-server communication, eliminate separate API routes for simple operations, and include automatic serialization with built-in loading states. For long-running operations, I reach for [**Inngest**](https://inngest.com)—long-running functions are typically serverless apps' biggest weakness, but Inngest makes background jobs and complex workflows dead simple to manage.
+
+For authentication, [**Clerk**](https://clerk.com) is my go-to solution. It's incredibly easy to set up, handles all the complex auth flows out of the box, and LLMs are well-trained on its patterns, making it perfect for AI-assisted development.
+
+### Project Structure That Scales
+
+A well-organized folder structure is crucial for maintaining velocity as your project grows. Here's the structure I've found works best for Next.js applications:
+
+```
+├── app/
+│   ├── (auth)/
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   └── ui/
+├── core/
+│   ├── post.core.ts
+│   ├── like.core.ts
+│   └── user.core.ts
+├── db/
+│   ├── user.db.ts
+│   ├── post.db.ts
+│   └── schema/
+│       └── user.schema.ts
+├── lib/
+│   ├── utils.ts
+│   ├── openai/
+│   └── stripe/
+├── prompts/
+├── public/
+└── types/
+    ├── post.type.ts
+    └── user.type.ts
+```
+
+**Key directories explained:**
+
+- **app/** - Next.js App Router pages and layouts. Use route groups like `(auth)` for organization
+- **components/** - Reusable UI components, with `ui/` for shadcn/ui components
+- **core/** - Business logic separated by domain:
+  - ***.core.ts** - Server functions exposed to the frontend (user management, likes, posts, etc.)
+- **db/** - Database schema, access, and models:
+  - **schema/** - Database schema definitions and migrations
+    - ***.schema.ts** - Database schemas (tables) (post.schema.ts, like.schema.ts, user.schema.ts)
+  - ***.db.ts** - Domain-specific database operations (post.db.ts, like.db.ts, user.db.ts)
+- **lib/** - Utility functions, external API clients, and helper libraries
+  - **openai/** - OpenAI client
+  - **stripe/** - Stripe client
+- **prompts/** - AI prompt templates and system prompts for consistent LLM interactions
+- **public/** - Static assets accessible via URL
+- **types/** - TypeScript definitions for better type safety across the application
+  - ***.type.ts** - Zod types for objects
+
+This structure keeps related code together while maintaining clear separation of concerns. The `core/` directory is particularly powerful—it centralizes your business logic and makes it easy to test and reuse across different parts of your application.
+
+## Database: Drizzle ORM + Neon PostgreSQL
+
+[**Drizzle ORM**](https://orm.drizzle.team) is TypeScript-first with excellent type inference and SQL-like syntax that doesn't abstract away the database. It's lightweight, performant, and has zero runtime overhead. [**Neon**](https://neon.tech) provides serverless PostgreSQL that scales to zero with excellent cold start performance and database branching for different environments.
+
+## Payments: Stripe
+
+[**Stripe**](https://stripe.com) is the most widely used payment processor that provides an easy-to-use TypeScript SDK. I recommend following a similar approach to Theo's when integrating Stripe for subscriptions: [Theo's Guide to staying sane while implementing Stripe](https://github.com/t3dotgg/stripe-recommendations)
+
+## Styling: shadcn/ui Ecosystem
+
+[**shadcn/ui**](https://ui.shadcn.com) revolutionizes component libraries with a copy-paste approach instead of heavy package imports. Built on Tailwind CSS and Radix UI, it covers 90% of use cases with excellent accessibility, full customization control, and no dependency hell. The thriving ecosystem provides additional components, themes, and tools constantly.
+
+## Deployment: Vercel
+
+[**Vercel**](https://vercel.com) is the natural choice for deploying Next.js applications. They offer a generous free tier that's perfect for solo developers and side projects, and even their Pro plan is incredibly generous for most use cases. The deployment process is seamless—connect your GitHub repo and every push automatically deploys with preview URLs for branches. The platform handles edge functions, serverless functions, and static assets effortlessly.
+
+## Why This Stack Works in 2025
+
+This combination excels because it provides a cohesive ecosystem with end-to-end TypeScript, optimized performance, scalability from simple to complex applications, AI-friendly patterns, and large active communities. The key is choosing tools that are well-documented, have a large community, as these tend to be better understood by LLMs.
+
+## Boilerplate
+
+I created a [boilerplate](https://github.com/sergiosegrera/boilerplate) repository that makes it really easy to get started with this stack. Just follow the instructions in the [README](https://github.com/sergiosegrera/boilerplate/blob/main/README.md) and you'll be up and running in no time.
+
+You can also check out the Cursor [guidelines.md](https://github.com/sergiosegrera/boilerplate/blob/main/.cursor/rules/guidelines.mdc) file that summarizes my findings when using Cursor's agent this makes it easier for the agent to understand the project.

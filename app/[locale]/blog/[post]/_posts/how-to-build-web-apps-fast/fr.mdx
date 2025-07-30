@@ -1,0 +1,98 @@
+import DateTime from "@/components/datetime";
+
+# Développer des Applications Web Rapidement : Guide du Développeur Moderne
+
+<DateTime date="2025-07-07" />
+
+*Ceci est un article basé sur mes découvertes personnelles de ce qui fonctionne le mieux, surtout dans l'ère moderne du développement assisté par l'IA. C'est exactement le stack que j'ai utilisé pour bâtir des applications web SaaS à succès comme [spendobudget.com](https://spendobudget.com) et [claycon.io](https://claycon.io). Votre expérience peut varier, mais ces outils et ces approches ont constamment donné des résultats pour le développement rapide d'applications web. J'ai aussi créé un [boilerplate](https://github.com/sergiosegrera/boilerplate) qui rend le démarrage d'un nouveau projet avec ce stack vraiment facile.*
+
+## Introduction
+
+L'IA a fondamentalement changé la vitesse à laquelle on peut développer des logiciels—ce qui prenait des semaines peut maintenant être accompli en quelques jours ou quelques heures. Mais cette accélération vient avec un piège caché : sans une base solide et une architecture appropriée, le rythme rapide peut créer un fardeau de dette technique écrasant qui finit par vous ralentir plus que le développement traditionnel ne l'a jamais fait. La clé, c'est pas juste de choisir des outils rapides—c'est d'architecturer votre code pour qu'il soit ergonomique tant pour les humains que pour l'IA. Des patterns propres, des structures prévisibles, et du code bien organisé ne font pas juste rendre votre vie plus facile ; ils rendent l'assistance de l'IA dramatiquement plus efficace, vous permettant d'aller vite sans casser des choses.
+
+## L'IDE : Cursor
+
+[**Cursor**](https://cursor.sh) est devenu mon IDE de choix parce qu'il est bâti dès le départ avec l'assistance IA en tête, ce qui en fait l'expérience développeur la plus ergonomique. L'agent de Cursor est aussi très bon pour comprendre votre base de code et donner des suggestions utiles (surtout si vous lui avez donné du bon contexte en utilisant les règles `.mdc`).
+
+## La Solution Full-Stack : Next.js + Server Functions
+
+[**Next.js**](https://nextjs.org) reste la référence pour les applications React full-stack, et un de ses plus gros avantages, c'est que les LLMs sont exceptionnellement bons avec les patterns React et Next.js. Les server functions fournissent une communication client-serveur type-safe, éliminent les routes API séparées pour les opérations simples, et incluent la sérialisation automatique avec des états de chargement built-in. Pour les opérations long-running, j'utilise [**Inngest**](https://inngest.com)—les fonctions long-running sont typiquement la plus grosse faiblesse des apps serverless, mais Inngest rend les background jobs et les workflows complexes super simples à gérer.
+
+Pour l'authentification, [**Clerk**](https://clerk.com) est ma solution de choix. C'est incroyablement facile à configurer, ça gère tous les flows d'auth complexes out of the box, et les LLMs sont bien entraînés sur ses patterns, ce qui le rend parfait pour le développement assisté par l'IA.
+
+### Structure de Projet qui Scale
+
+Une structure de dossiers bien organisée est cruciale pour maintenir la vélocité à mesure que votre projet grandit. Voici la structure que j'ai trouvée qui marche le mieux pour les applications Next.js :
+
+```
+├── app/
+│   ├── (auth)/
+│   ├── layout.tsx
+│   └── page.tsx
+├── components/
+│   └── ui/
+├── core/
+│   ├── post.core.ts
+│   ├── like.core.ts
+│   └── user.core.ts
+├── db/
+│   ├── user.db.ts
+│   ├── post.db.ts
+│   └── schema/
+│       └── user.schema.ts
+├── lib/
+│   ├── utils.ts
+│   ├── openai/
+│   └── stripe/
+├── prompts/
+├── public/
+└── types/
+    ├── post.type.ts
+    └── user.type.ts
+```
+
+**Répertoires clés expliqués :**
+
+- **app/** - Pages et layouts Next.js App Router. Utilisez des groupes de routes comme `(auth)` pour l'organisation
+- **components/** - Composants UI réutilisables, avec `ui/` pour les composants shadcn/ui
+- **core/** - Logique métier séparée par domaine :
+  - ***.core.ts** - Server functions exposées au frontend (gestion d'utilisateurs, likes, posts, etc.)
+- **db/** - Schéma de base de données, accès, et modèles :
+  - **schema/** - Définitions de schéma de base de données et migrations
+    - ***.schema.ts** - Schémas de base de données (tables) (post.schema.ts, like.schema.ts, user.schema.ts)
+  - ***.db.ts** - Opérations de base de données spécifiques au domaine (post.db.ts, like.db.ts, user.db.ts)
+- **lib/** - Fonctions utilitaires, clients API externes, et bibliothèques helper
+  - **openai/** - Client OpenAI
+  - **stripe/** - Client Stripe
+- **prompts/** - Templates de prompts IA et prompts système pour des interactions LLM consistantes
+- **public/** - Assets statiques accessibles via URL
+- **types/** - Définitions TypeScript pour une meilleure sécurité de type à travers l'application
+  - ***.type.ts** - Types Zod pour les objets
+
+Cette structure garde le code relié ensemble tout en maintenant une séparation claire des préoccupations. Le répertoire `core/` est particulièrement puissant—il centralise votre logique métier et rend facile de tester et réutiliser à travers différentes parties de votre application.
+
+## Base de Données : Drizzle ORM + Neon PostgreSQL
+
+[**Drizzle ORM**](https://orm.drizzle.team) est TypeScript-first avec une excellente inférence de type et une syntaxe SQL-like qui n'abstrait pas la base de données. C'est léger, performant, et a zéro overhead runtime. [**Neon**](https://neon.tech) fournit du PostgreSQL serverless qui scale à zéro avec une excellente performance de cold start et du database branching pour différents environnements.
+
+## Paiements : Stripe
+
+[**Stripe**](https://stripe.com) est le processeur de paiement le plus largement utilisé qui fournit un SDK TypeScript facile à utiliser. Je recommande de suivre une approche similaire à celle de Theo lors de l'intégration de Stripe pour les abonnements : [Guide de Theo pour rester sain d'esprit en implémentant Stripe](https://github.com/t3dotgg/stripe-recommendations)
+
+## Styling : Écosystème shadcn/ui
+
+[**shadcn/ui**](https://ui.shadcn.com) révolutionne les bibliothèques de composants avec une approche copy-paste au lieu d'imports de packages lourds. Bâti sur Tailwind CSS et Radix UI, ça couvre 90% des cas d'usage avec une excellente accessibilité, un contrôle de personnalisation complet, et pas de dependency hell. L'écosystème florissant fournit des composants additionnels, des thèmes, et des outils constamment.
+
+## Déploiement : Vercel
+
+[**Vercel**](https://vercel.com) est le choix naturel pour déployer des applications Next.js. Ils offrent un tier gratuit généreux qui est parfait pour les développeurs solo et les projets side, et même leur plan Pro est incroyablement généreux pour la plupart des cas d'usage. Le processus de déploiement est seamless—connectez votre repo GitHub et chaque push déploie automatiquement avec des URLs de preview pour les branches. La plateforme gère les edge functions, serverless functions, et static assets sans effort.
+
+## Pourquoi Ce Stack Marche en 2025
+
+Cette combinaison excelle parce qu'elle fournit un écosystème cohésif avec du TypeScript end-to-end, une performance optimisée, une scalabilité du simple au complexe, des patterns AI-friendly, et de grosses communautés actives. La clé, c'est de choisir des outils qui sont bien documentés, qui ont une grosse communauté, car ceux-ci tendent à être mieux compris par les LLMs.
+
+## Boilerplate
+
+J'ai créé un [boilerplate](https://github.com/sergiosegrera/boilerplate) qui rend vraiment facile de commencer avec ce stack. Suivez juste les instructions dans le [README](https://github.com/sergiosegrera/boilerplate/blob/main/README.md).
+
+Vous pouvez aussi checker le fichier [guidelines.md](https://github.com/sergiosegrera/boilerplate/blob/main/.cursor/rules/guidelines.mdc) qui résume mes découvertes quand j'utilise l'agent de Cursor.

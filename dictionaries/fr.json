@@ -1,13 +1,36 @@
 {
-  "siteName": "Sergio Segrera",
-  "siteDescription": "Sergio Segrera, Ingénieur Fondateur chez Clarum",
-  "title": "Ingénieur Fondateur",
-  "company": "Clarum",
-  "location": "San Francisco, CA",
-  "description": "Ingénieur fondateur chez Clarum, une startup fintech soutenue par Y Combinator, et ancien de Deloitte, je suis passionné par la création de solutions innovantes pour relever les défis du monde réel. Originaire de Montréal et maintenant basé à San Francisco, j'aime rester actif en pratiquant l'escalade, la course à pied et le yoga, tout en explorant la bonne cuisine et en créant des liens avec les autres. Connectons-nous!",
-  "ascendoStudio": "Un studio de conception web sur mesure où j’ai collaboré avec des clients pour concrétiser leurs visions, en créant des expériences numériques à la fois attrayantes et fonctionnelles, adaptées à leurs besoins.",
-  "mesmaxillos": "Conception et lancement d’un site web professionnel pour une clinique de chirurgie maxillo-faciale, améliorant sa présence en ligne et facilitant l’accès des patients aux informations et services essentiels.",
-  "leasite": "Développement d’un site web de portfolio élégant et intuitif pour un studio de design d’intérieur, mettant en valeur leur travail et leur expertise pour attirer et inspirer des clients.",
-  "previousEndeavors": "Réalisations Précédentes",
-  "contact": "Contact"
+  "home": {
+    "siteName": "Sergio Segrera",
+    "siteDescription": "Sergio Segrera, Ingénieur Fondateur",
+    "title": "Ingénieur Fondateur",
+    "location": "Montréal, Canada / San Francisco, USA",
+    "description": "Ingénieur fondateur précédemment chez Clarum, une startup fintech soutenue par Y Combinator, et ancien de Deloitte, je suis passionné par la création de solutions innovantes pour relever les défis du monde réel. Originaire de Montréal et maintenant basé à San Francisco, j'aime rester actif en pratiquant l'escalade, la course à pied et le yoga, tout en explorant la bonne cuisine et en créant des liens avec les autres. Connectons-nous!",
+    "previousEndeavors": "Réalisations Précédentes",
+    "contact": "Contact",
+    "bookACall": "Prendre rendez-vous"
+  },
+  "projects": {
+    "spendo-budget": {
+      "title": "Spendo Budget",
+      "description": "Une application de budgétisation alimentée par l'IA qui se connecte à vos comptes bancaires pour catégoriser automatiquement les dépenses et créer des budgets personnalisés. Elle fournit des insights en temps réel, un suivi des tendances et des rapports mensuels pour vous aider à gérer vos finances sans effort."
+    },
+    "claycon": {
+      "title": "claycon.app",
+      "description": "Un outil IA simple qui génère des icônes de haute qualité, de style 3D à partir de prompts textuels. Il est conçu pour les designers et développeurs qui ont besoin d'icônes rapides, cohérentes et personnalisables pour leurs projets."
+    },
+    "mesmaxillos": {
+      "title": "MesMaxillos",
+      "description": "Conçu et lancé un site web de qualité professionnelle pour une clinique de chirurgie maxillo-faciale, améliorant sa présence en ligne et facilitant l'accès des patients aux informations et services essentiels."
+    }
+  },
+  "blog": {
+    "how-to-build-web-apps-fast": {
+      "title": "Comment développer des applications web rapidement",
+      "description": "Découvrez la stack de développement web moderne qui exploite l'IA pour créer rapidement des applications. Guide complet sur Next.js, Drizzle ORM, shadcn/ui et les bonnes pratiques de déploiement pour 2025."
+    },
+    "recreating-vercels-book-component": {
+      "title": "Recréer le composant de livre de Vercel",
+      "description": "Apprenez comment j'ai recréé le composant de livre de Vercel en utilisant React et Tailwind CSS."
+    }
+  }
 }

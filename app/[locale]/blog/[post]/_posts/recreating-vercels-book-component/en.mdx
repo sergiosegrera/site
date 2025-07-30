@@ -1,0 +1,32 @@
+import DateTime from "@/components/datetime";
+import BookCodePreview from "./_components/BookCodePreview";
+
+# Recreating Vercel's 3D Book Component
+
+<DateTime date="2025-07-07" />
+
+I've been noticing this sleek 3D book component across various websites lately, and it kept catching my eye every time I encountered it. There was something mesmerizing about how it seemed to have real depth and dimension, almost like you could reach out and grab it off the screen. My curiosity finally got the better of me, so I decided to roll up my sleeves and figure out exactly how it was built.
+
+## The Investigation
+
+Inspecting the component in the browser, I started dissecting it piece by piece. What I discovered was elegantly simple yet brilliantly executed. The entire 3D effect was achieved using just three main HTML elements representing different parts of a physical book:
+
+- **The front cover** - The main face that users interact with
+- **The pages** - The thick bundle of pages that creates the book's depth
+- **The back cover** - The rear face that completes the illusion
+
+The magic happens through CSS transforms, specifically the `rotate3d()` function. Each plane is positioned and rotated in 3D space to create the convincing illusion of a real book sitting on your screen. The front cover sits flush, the pages are rotated on hover to show the book's thickness, and the back cover is positioned to complete the 3D form.
+
+## Following the Design System
+
+Rather than reinventing the wheel, I decided to follow the exact same component interface that Vercel uses in their [Geist Design System](https://vercel.com/geist/book).
+
+The component accepts props for the book's cover color, title, texture, and various styling options, maintaining the same clean API that makes Geist components so pleasant to work with.
+
+## The Result
+
+After some experimentation with transform origins, perspective values, and positioning, I managed to recreate the component with faithful attention to the original's visual impact. The key was understanding how the three planes work together to create depth while maintaining smooth animations and hover effects.
+
+The component responds beautifully to user interaction, with subtle rotations and shadows that enhance the 3D illusion without being overwhelming.
+
+<BookCodePreview />

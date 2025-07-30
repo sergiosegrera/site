@@ -1,0 +1,32 @@
+import DateTime from "@/components/datetime";
+import BookCodePreview from "./_components/BookCodePreview";
+
+# Recréer le Composant de Livre 3D de Vercel
+
+<DateTime date="2025-07-07" />
+
+J'ai remarqué récemment ce composant de livre 3D élégant sur divers sites web, et il attirait mon attention à chaque fois que je le rencontrais. Il y avait quelque chose d'hypnotisant dans la façon dont il semblait avoir une vraie profondeur et dimension, presque comme si on pouvait tendre la main et le saisir depuis l'écran. Ma curiosité a finalement eu raison de moi, alors j'ai décidé de retrousser mes manches et de comprendre exactement comment il était construit.
+
+## L'Investigation
+
+En inspectant le composant dans le navigateur, j'ai commencé à le disséquer pièce par pièce. Ce que j'ai découvert était élégamment simple mais brillamment exécuté. Tout l'effet 3D était obtenu en utilisant seulement trois éléments HTML principaux représentant différentes parties d'un livre physique :
+
+- **La couverture avant** - La face principale avec laquelle les utilisateurs interagissent
+- **Les pages** - L'épaisse liasse de pages qui crée la profondeur du livre
+- **La couverture arrière** - La face arrière qui complète l'illusion
+
+La magie se produit grâce aux transformations CSS, spécifiquement la fonction `rotate3d()`. Chaque plan est positionné et tourné dans l'espace 3D pour créer l'illusion convaincante d'un vrai livre posé sur votre écran. La couverture avant est alignée, les pages sont tournées au survol pour montrer l'épaisseur du livre, et la couverture arrière est positionnée pour compléter la forme 3D.
+
+## Suivre le Système de Design
+
+Plutôt que de réinventer la roue, j'ai décidé de suivre exactement la même interface de composant que Vercel utilise dans leur [Système de Design Geist](https://vercel.com/geist/book).
+
+Le composant accepte des propriétés pour la couleur de couverture du livre, le titre, la texture, et diverses options de style, maintenant la même API propre qui rend les composants Geist si agréables à utiliser.
+
+## Le Résultat
+
+Après quelques expérimentations avec les origines de transformation, les valeurs de perspective, et le positionnement, j'ai réussi à recréer le composant avec une attention fidèle à l'impact visuel de l'original. La clé était de comprendre comment les trois plans fonctionnent ensemble pour créer la profondeur tout en maintenant des animations fluides et des effets de survol.
+
+Le composant répond magnifiquement à l'interaction utilisateur, avec des rotations subtiles et des ombres qui améliorent l'illusion 3D sans être écrasantes.
+
+<BookCodePreview />

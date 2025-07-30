@@ -1,13 +1,36 @@
 {
-  "siteName": "Sergio Segrera",
-  "siteDescription": "Sergio Segrera, Founding Engineer at Clarum",
-  "title": "Founding Engineer",
-  "company": "Clarum",
-  "location": "San Francisco, CA",
-  "description": "Founding Engineer at Clarum, a Y Combinator-backed fintech startup, with prior experience at Deloitte, I’m passionate about creating innovative solutions to tackle real-world challenges. Originally from Montreal and now based in San Francisco, I enjoy staying active through rock climbing, running, and yoga, as well as exploring great food and connecting with others. Let’s connect!",
-  "ascendoStudio": "A bespoke web design studio where I collaborated with clients to bring their visions to life, creating stunning and functional digital experiences tailored to their needs.",
-  "mesmaxillos": "Designed and launched a professional-grade website for a maxillofacial surgery clinic, enhancing its online presence and making it easier for patients to access essential information and services.",
-  "leasite": "Developed an elegant and intuitive portfolio website for an interior design studio, showcasing their work and expertise to attract and inspire clients.",
-  "previousEndeavors": "Previous Endeavors",
-  "contact": "Contact"
+  "home": {
+    "siteName": "Sergio Segrera",
+    "siteDescription": "Sergio Segrera, Founding Engineer",
+    "title": "Founding Engineer",
+    "location": "Montreal, Canada / San Francisco, USA",
+    "description": "Founding Engineer previously at Clarum, a Y Combinator-backed fintech startup, with prior experience at Deloitte, I’m passionate about creating innovative solutions to tackle real-world challenges. Originally from Montreal and now based in San Francisco, I enjoy staying active through rock climbing, running, and yoga, as well as exploring great food and connecting with others. Let’s connect!",
+    "previousEndeavors": "Previous Endeavors",
+    "contact": "Contact",
+    "bookACall": "Book a call"
+  },
+  "projects": {
+    "spendo-budget": {
+      "title": "Spendo Budget",
+      "description": "An AI-powered budgeting app that connects to your bank accounts to automatically categorize spending and build personalized budgets. It provides real-time insights, trend tracking, and monthly reports to help you stay on top of your finances effortlessly."
+    },
+    "claycon": {
+      "title": "claycon.app",
+      "description": "A simple AI tool that generates high-quality, 3D-style icons from text prompts. It’s built for designers and developers who need fast, consistent, and customizable icons for their projects."
+    },
+    "mesmaxillos": {
+      "title": "MesMaxillos",
+      "description": "Designed and launched a professional-grade website for a maxillofacial surgery clinic, enhancing its online presence and making it easier for patients to access essential information and services."
+    }
+  },
+  "blog": {
+    "how-to-build-web-apps-fast": {
+      "title": "How to build web apps fast",
+      "description": "Learn the modern web development stack that leverages AI for rapid application building. Complete guide to Next.js, Drizzle ORM, shadcn/ui, and deployment best practices for 2025."
+    },
+    "recreating-vercels-book-component": {
+      "title": "Recreating Vercel's Book Component",
+      "description": "Lessons on how I recreated Vercel's book component using React and Tailwind CSS."
+    }
+  }
 }

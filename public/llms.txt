@@ -1,0 +1,48 @@
+# Sergio Segrera – Portfolio
+
+## Overview
+- **Name:** Sergio Segrera  
+- **Role:** Founding Engineer  
+- **Location:** Montreal, Canada / San Francisco, USA  
+- **Email:** me@sergiosegrera.com  
+- **LinkedIn:** [Sergio Segrera](https://www.linkedin.com/in/ssegrera/)  
+- **GitHub:** [@sergiosegrera](https://github.com/sergiosegrera)  
+- **Book a Call:** [cal.com](https://cal.com/sergiosegrera/30min)
+
+### About Me
+Founding Engineer previously at **Clarum**, a Y Combinator-backed fintech startup, with prior experience at Deloitte. I specialize in creating innovative solutions that tackle real-world challenges.  
+Originally from Montreal and now based in San Francisco, I’m passionate about building technology that makes life easier. Outside of work, I enjoy rock climbing, running, yoga, great food, and connecting with people.
+
+---
+
+## Previous Endeavors
+
+### 1. Spendo Budget
+- **Type:** AI-powered budgeting app  
+- **Description:** Connects to your bank accounts to automatically categorize spending, build personalized budgets, and provide real-time insights. Includes trend tracking and monthly reports to help users stay on top of finances effortlessly.
+
+### 2. claycon.app
+- **Type:** AI design tool  
+- **Description:** Generates high-quality, 3D-style icons from text prompts. Built for designers and developers who need fast, consistent, and customizable icons for their projects.
+
+### 3. MesMaxillos
+- **Type:** Professional website project  
+- **Description:** Designed and launched a professional-grade website for a maxillofacial surgery clinic. Improved the clinic’s online presence, making it easier for patients to access essential information and services.
+
+---
+
+## Blog
+
+### [Recreating Vercel's Book Component](https://sergiosegrera.com/en/blog/recreating-vercels-book-component)
+- **Date:** July 6, 2025  
+
+### [How to Build Web Apps Fast](https://sergiosegrera.com/en/blog/how-to-build-web-apps-fast)
+- **Date:** June 28, 2025  
+
+---
+
+## Contact
+- **Email:** me@sergiosegrera.com  
+- **LinkedIn:** [Sergio Segrera](https://www.linkedin.com/in/ssegrera/)  
+- **GitHub:** [@sergiosegrera](https://github.com/sergiosegrera)  
+- **Book a call:** [cal.com](https://cal.com/sergiosegrera/30min)
