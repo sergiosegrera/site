@@ -21,12 +21,14 @@ La magie se produit grâce aux transformations CSS, spécifiquement la fonction 
 
 Plutôt que de réinventer la roue, j'ai décidé de suivre exactement la même interface de composant que Vercel utilise dans leur [Système de Design Geist](https://vercel.com/geist/book).
 
-Le composant accepte des propriétés pour la couleur de couverture du livre, le titre, la texture, et diverses options de style, maintenant la même API propre qui rend les composants Geist si agréables à utiliser.
+Le composant accepte des propriétés pour la couleur de couverture du livre, le titre, la texture, et diverses options de style.
 
 ## Le Résultat
 
 Après quelques expérimentations avec les origines de transformation, les valeurs de perspective, et le positionnement, j'ai réussi à recréer le composant avec une attention fidèle à l'impact visuel de l'original. La clé était de comprendre comment les trois plans fonctionnent ensemble pour créer la profondeur tout en maintenant des animations fluides et des effets de survol.
 
 Le composant répond magnifiquement à l'interaction utilisateur, avec des rotations subtiles et des ombres qui améliorent l'illusion 3D sans être écrasantes.
+
+Voici un aperçu du composant :
 
 <BookCodePreview />
