@@ -21,12 +21,14 @@ The magic happens through CSS transforms, specifically the `rotate3d()` function
 
 Rather than reinventing the wheel, I decided to follow the exact same component interface that Vercel uses in their [Geist Design System](https://vercel.com/geist/book).
 
-The component accepts props for the book's cover color, title, texture, and various styling options, maintaining the same clean API that makes Geist components so pleasant to work with.
+The component accepts props for the book's cover color, title, texture, and various styling options.
 
 ## The Result
 
 After some experimentation with transform origins, perspective values, and positioning, I managed to recreate the component with faithful attention to the original's visual impact. The key was understanding how the three planes work together to create depth while maintaining smooth animations and hover effects.
 
 The component responds beautifully to user interaction, with subtle rotations and shadows that enhance the 3D illusion without being overwhelming.
+
+Here's a preview of the component:
 
 <BookCodePreview />
