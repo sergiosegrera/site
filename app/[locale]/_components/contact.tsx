@@ -29,14 +29,14 @@ export default function Contact({ animate = true }: { animate?: boolean }) {
       <h2 className="text-sm font-medium h-4" ref={ref} onMouseEnter={replay}>
         {t("contact")}
       </h2>
-      <m.div
+      <m.ul
         id="contact-list"
         className="flex flex-col gap-2 text-slate-500"
         initial={animate ? { opacity: 0 } : undefined}
         animate={animate ? { opacity: 1 } : undefined}
         transition={animate ? { duration: 0.5, delay: 5 } : undefined}
       >
-        <div id="email" className="flex flex-row gap-1 items-center group">
+        <li id="email" className="flex flex-row gap-1 items-center group">
           <LucideMail className="inline-block mr-1 text-slate-400" size={12} />
           <a
             href="mailto:me@sergiosegrera.com"
@@ -44,8 +44,8 @@ export default function Contact({ animate = true }: { animate?: boolean }) {
           >
             me@sergiosegrera.com
           </a>
-        </div>
-        <div id="linkedin" className="flex flex-row gap-1 items-center group">
+        </li>
+        <li id="linkedin" className="flex flex-row gap-1 items-center group">
           <LucideLinkedin
             className="inline-block mr-1 text-slate-400"
             size={12}
@@ -56,8 +56,8 @@ export default function Contact({ animate = true }: { animate?: boolean }) {
           >
             Sergio Segrera
           </a>
-        </div>
-        <div id="github" className="flex flex-row gap-1 items-center group">
+        </li>
+        <li id="github" className="flex flex-row gap-1 items-center group">
           <LucideGithub
             className="inline-block mr-1 text-slate-400"
             size={12}
@@ -68,11 +68,8 @@ export default function Contact({ animate = true }: { animate?: boolean }) {
           >
             sergiosegrera
           </a>
-        </div>
-        <div
-          id="book-a-call"
-          className="flex flex-row gap-1 items-center group"
-        >
+        </li>
+        <li id="book-a-call" className="flex flex-row gap-1 items-center group">
           <CalendarCheck2Icon
             className="inline-block mr-1 text-slate-400"
             size={12}
@@ -83,8 +80,8 @@ export default function Contact({ animate = true }: { animate?: boolean }) {
           >
             {t("bookACall")}
           </a>
-        </div>
-      </m.div>
+        </li>
+      </m.ul>
     </m.footer>
   );
 }

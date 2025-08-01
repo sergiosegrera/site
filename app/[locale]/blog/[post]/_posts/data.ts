@@ -1,7 +1,7 @@
 export const posts = [
   {
     slug: "how-to-build-web-apps-fast",
-    date: "2025-06-29",
+    date: "2025-06-28",
   },
   {
     slug: "recreating-vercels-book-component",
