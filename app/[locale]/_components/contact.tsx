@@ -23,8 +23,8 @@ export default function Contact({ animate = true }: { animate?: boolean }) {
     <m.section
       id="contact"
       className="flex flex-row gap-4 text-xs relative"
-      initial={animate ? { opacity: 0 } : undefined}
-      animate={animate ? { opacity: 1 } : undefined}
+      initial={animate ? { opacity: 0 } : false}
+      animate={animate ? { opacity: 1 } : false}
       transition={animate ? { duration: 0.5, delay: 4.5 } : undefined}
     >
       <div className="flex flex-col gap-2 flex-1">
@@ -34,8 +34,8 @@ export default function Contact({ animate = true }: { animate?: boolean }) {
         <m.ul
           id="contact-list"
           className="flex flex-col gap-2 text-slate-500"
-          initial={animate ? { opacity: 0 } : undefined}
-          animate={animate ? { opacity: 1 } : undefined}
+          initial={animate ? { opacity: 0 } : false}
+          animate={animate ? { opacity: 1 } : false}
           transition={animate ? { duration: 0.5, delay: 5 } : undefined}
         >
           <li id="email" className="flex flex-row gap-1 items-center group">
