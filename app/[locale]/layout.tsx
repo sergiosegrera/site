@@ -3,8 +3,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { Analytics } from "@vercel/analytics/next";
 
-import GoogleAnalytics from "./_components/google-analytics";
 import { routing } from "@/i18n/routing";
 import { getTranslations } from "next-intl/server";
 
@@ -43,7 +43,7 @@ export default async function RootLayout({
       <head>
         <meta name="apple-mobile-web-app-title" content="Sergio Segrera" />
       </head>
-      <GoogleAnalytics id="G-VQEBLMPXH4" />
+      <Analytics />
       <body className={inter.className}>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
