@@ -25,7 +25,7 @@ export default function Blog() {
   };
 
   return (
-    <m.div
+    <m.section
       id="blog"
       className="flex flex-col gap-4"
       initial={{ opacity: 0 }}
@@ -39,7 +39,7 @@ export default function Blog() {
       >
         Blog
       </h2>
-      <m.div
+      <m.ul
         id="blog-list"
         className="flex flex-col gap-6"
         variants={container}
@@ -53,8 +53,8 @@ export default function Blog() {
           .map((post) => {
             return <BlogItem key={post.slug} post={post} />;
           })}
-      </m.div>
-    </m.div>
+      </m.ul>
+    </m.section>
   );
 }
 
@@ -73,7 +73,7 @@ function BlogItem({ post }: { post: (typeof posts)[number] }) {
 
   return (
     <Link href={`/blog/${post.slug}`}>
-      <m.div
+      <m.li
         key={post.slug}
         id={post.slug}
         className="flex flex-col gap-0.5"
@@ -97,7 +97,7 @@ function BlogItem({ post }: { post: (typeof posts)[number] }) {
             day: "numeric",
           })}
         </time>
-      </m.div>
+      </m.li>
     </Link>
   );
 }

@@ -42,7 +42,7 @@ export default function Projects() {
   };
 
   return (
-    <m.div
+    <m.section
       id="projects"
       className="flex flex-col gap-4"
       initial={{ opacity: 0 }}
@@ -56,7 +56,7 @@ export default function Projects() {
       >
         {t("previousEndeavors")}
       </h2>
-      <m.div
+      <m.ul
         id="project-list"
         className="flex flex-col gap-6"
         variants={container}
@@ -66,8 +66,8 @@ export default function Projects() {
         {projects.map((project) => (
           <ProjectItem key={project.slug} project={project} />
         ))}
-      </m.div>
-    </m.div>
+      </m.ul>
+    </m.section>
   );
 }
 
@@ -90,7 +90,7 @@ export const ProjectItem = ({
 
   return (
     <Link href={project.url} target="_blank">
-      <m.div
+      <m.li
         id={project.slug}
         className="grid grid-cols-[48px_1fr] gap-3 items-start group"
         variants={item}
@@ -113,7 +113,7 @@ export const ProjectItem = ({
           </div>
           <p className="text-xs text-slate-500">{t("description")}</p>
         </div>
-      </m.div>
+      </m.li>
     </Link>
   );
 };

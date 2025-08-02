@@ -20,7 +20,7 @@ export default function Contact({ animate = true }: { animate?: boolean }) {
   });
 
   return (
-    <m.footer
+    <m.section
       id="contact"
       className="flex flex-row gap-4 text-xs relative"
       initial={animate ? { opacity: 0 } : undefined}
@@ -92,6 +92,6 @@ export default function Contact({ animate = true }: { animate?: boolean }) {
         </m.ul>
       </div>
       <QuoteStickyNote />
-    </m.footer>
+    </m.section>
   );
 }

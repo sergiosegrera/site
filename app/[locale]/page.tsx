@@ -14,7 +14,7 @@ export default async function Home() {
   return (
     <main className="md:w-[600px] mx-auto my-8 md:my-16 px-4 flex flex-col gap-12">
       {/* Header */}
-      <div id="header" className="grid grid-cols-[64px_1fr_auto] gap-4 w-full">
+      <nav id="header" className="grid grid-cols-[64px_1fr_auto] gap-4 w-full">
         {/* <div id="logo" className="w-16 h-16 bg-slate-200 rounded-lg"></div> */}
         <Image
           src="/static/profile.webp"
@@ -40,7 +40,7 @@ export default async function Home() {
         <div id="lang-switcher" className="flex justify-end">
           <LanguageSwitcher />
         </div>
-      </div>
+      </nav>
       <LazyMotion features={domAnimation}>
         {/* Bio */}
         <Bio />

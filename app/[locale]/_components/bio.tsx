@@ -7,7 +7,7 @@ export default function Bio() {
   const t = useTranslations("home");
 
   return (
-    <m.div
+    <m.p
       id="bio"
       className="text-xs text-slate-500"
       initial={{ opacity: 0 }}
@@ -15,6 +15,6 @@ export default function Bio() {
       transition={{ duration: 0.5, delay: 0.5 }}
     >
       {t("description")}
-    </m.div>
+    </m.p>
   );
 }
