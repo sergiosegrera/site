@@ -58,13 +58,16 @@ export default function QuoteStickyNote() {
         setRotation(Math.random() * 20 - 10);
       }}
     >
-      <p
+      <q
         className="text-[10px] whitespace-pre-line text-left italic"
         suppressHydrationWarning
+        style={{
+          quotes: "none",
+        }}
       >
         {displayedText}
         {isTyping && <span className="animate-pulse">|</span>}
-      </p>
+      </q>
     </StickyNote>
   );
 }
