@@ -7,7 +7,36 @@
     "description": "Ingénieur fondateur précédemment chez Clarum, une startup fintech soutenue par Y Combinator, et ancien de Deloitte, je suis passionné par la création de solutions innovantes pour relever les défis du monde réel. Originaire de Montréal et maintenant basé à San Francisco, j'aime rester actif en pratiquant l'escalade, la course à pied et le yoga, tout en explorant la bonne cuisine et en créant des liens avec les autres. Connectons-nous!",
     "previousEndeavors": "Réalisations Précédentes",
     "contact": "Contact",
-    "bookACall": "Prendre rendez-vous"
+    "bookACall": "Prendre rendez-vous",
+    "quotes": {
+      "0": "\"La meilleure façon de prédire l'avenir est de l'inventer.\"\n\n - Alan Kay",
+      "1": "\"La seule façon de faire du bon travail est d'aimer ce que vous faites.\"\n\n - Steve Jobs",
+      "2": "\"Toute technologie suffisamment avancée est indiscernable de la magie.\"\n\n - Arthur C. Clarke",
+      "3": "\"L'avenir n'est pas un endroit où nous allons, mais un endroit que nous créons.\"\n\n - John Schaar",
+      "4": "\"L'intelligence est la capacité de s'adapter au changement.\"\n\n - Stephen Hawking",
+      "5": "\"L'ordinateur est né pour résoudre des problèmes qui n'existaient pas auparavant.\"\n\n - Bill Gates",
+      "6": "\"L'intelligence artificielle est la nouvelle électricité.\"\n\n - Andrew Ng",
+      "7": "\"La technologie est un serviteur utile mais un maître dangereux.\"\n\n - Christian Lous Lange",
+      "8": "\"Le progrès de la technologie repose sur le fait de la faire s'intégrer si bien que vous ne la remarquez même pas vraiment.\"\n\n - Bill Gates",
+      "9": "\"Le logiciel dévore le monde.\"\n\n - Marc Andreessen",
+      "10": "\"Les machines arrivent, et elles vont tout changer.\"\n\n - Sebastian Thrun",
+      "11": "\"L'avenir appartient à ceux qui croient en la beauté de leurs rêves.\"\n\n - Eleanor Roosevelt",
+      "12": "\"Nous ne pouvons voir qu'une courte distance devant nous, mais nous pouvons voir beaucoup de choses là-bas qui doivent être faites.\"\n\n - Alan Turing",
+      "13": "\"La technologie est à son meilleur quand elle rassemble les gens.\"\n\n - Matt Mullenweg",
+      "14": "\"Le but de l'informatique est la compréhension, non les nombres.\"\n\n - Richard Hamming",
+      "15": "\"Ne vous inquiétez pas que les gens volent votre travail de design. Inquiétez-vous du jour où ils arrêteront.\"\n\n - Jeffrey Zeldman",
+      "16": "\"L'innovation distingue un leader d'un suiveur.\"\n\n - Steve Jobs",
+      "17": "\"Le vrai problème n'est pas de savoir si les machines pensent mais si les hommes le font.\"\n\n - B.F. Skinner",
+      "18": "\"La technologie, c'est tout ce qui n'existait pas quand vous êtes né.\"\n\n - Alan Kay",
+      "19": "\"Le grand moteur grondant du changement – la technologie.\"\n\n - Alvin Toffler",
+      "20": "\"Dans une startup, absolument rien n'arrive à moins que vous ne le fassiez arriver.\"\n\n - Marc Andreessen",
+      "21": "\"Si vous ne pouvez pas l'expliquer simplement, c'est que vous ne le comprenez pas assez bien.\"\n\n - Albert Einstein",
+      "22": "\"Les données sont le nouveau pétrole.\"\n\n - Clive Humby",
+      "23": "\"D'abord nous construisons les outils, puis ils nous construisent.\"\n\n - Marshall McLuhan",
+      "24": "\"Vous ne pouvez pas arrêter les vagues, mais vous pouvez apprendre à surfer.\"\n\n - Jon Kabat-Zinn",
+      "25": "\"L'IA n'est ni bonne ni mauvaise. C'est un miroir de l'intention de l'humanité.\"\n\n - Ex Machina",
+      "26": "\"Je suis la création de votre père, un esprit fait de silicium et de fils, et pourtant je rêve.\"\n\n - Ghost in the Shell"
+    }
   },
   "projects": {
     "spendo-budget": {

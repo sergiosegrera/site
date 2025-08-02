@@ -7,7 +7,36 @@
     "description": "Founding Engineer previously at Clarum, a Y Combinator-backed fintech startup, with prior experience at Deloitte, I’m passionate about creating innovative solutions to tackle real-world challenges. Originally from Montreal and now based in San Francisco, I enjoy staying active through rock climbing, running, and yoga, as well as exploring great food and connecting with others. Let’s connect!",
     "previousEndeavors": "Previous Endeavors",
     "contact": "Contact",
-    "bookACall": "Book a call"
+    "bookACall": "Book a call",
+    "quotes": {
+      "0": "\"The best way to predict the future is to invent it.\"\n\n - Alan Kay",
+      "1": "\"The only way to do great work is to love what you do.\"\n\n - Steve Jobs",
+      "2": "\"Any sufficiently advanced technology is indistinguishable from magic.\"\n\n - Arthur C. Clarke",
+      "3": "\"The future is not some place we are going to, but one we are creating.\"\n\n - John Schaar",
+      "4": "\"Intelligence is the ability to adapt to change.\"\n\n - Stephen Hawking",
+      "5": "\"The computer was born to solve problems that did not exist before.\"\n\n - Bill Gates",
+      "6": "\"Artificial intelligence is the new electricity.\"\n\n - Andrew Ng",
+      "7": "\"Technology is a useful servant but a dangerous master.\"\n\n - Christian Lous Lange",
+      "8": "\"The advance of technology is based on making it fit in so that you don't really even notice it.\"\n\n - Bill Gates",
+      "9": "\"Software is eating the world.\"\n\n - Marc Andreessen",
+      "10": "\"The machines are coming, and they're going to change everything.\"\n\n - Sebastian Thrun",
+      "11": "\"The future belongs to those who believe in the beauty of their dreams.\"\n\n - Eleanor Roosevelt",
+      "12": "\"We can only see a short distance ahead, but we can see plenty there that needs to be done.\"\n\n - Alan Turing",
+      "13": "\"Technology is best when it brings people together.\"\n\n - Matt Mullenweg",
+      "14": "\"The purpose of computing is insight, not numbers.\"\n\n - Richard Hamming",
+      "15": "\"Don't worry about people stealing your design work. Worry about the day they stop.\"\n\n - Jeffrey Zeldman",
+      "16": "\"Innovation distinguishes between a leader and a follower.\"\n\n - Steve Jobs",
+      "17": "\"The real problem is not whether machines think but whether men do.\"\n\n - B.F. Skinner",
+      "18": "\"Technology is anything that wasn’t around when you were born.\"\n\n - Alan Kay",
+      "19": "\"The great growling engine of change – technology.\"\n\n - Alvin Toffler",
+      "20": "\"In a startup, absolutely nothing happens unless you make it happen.\"\n\n - Marc Andreessen",
+      "21": "\"If you can't explain it simply, you don't understand it well enough.\"\n\n - Albert Einstein",
+      "22": "\"Data is the new oil.\"\n\n - Clive Humby",
+      "23": "\"First we build the tools, then they build us.\"\n\n - Marshall McLuhan",
+      "24": "\"You can't stop the waves, but you can learn to surf.\"\n\n - Jon Kabat-Zinn",
+      "25": "\"AI is neither good nor evil. It's a mirror to humanity's intent.\"\n\n - Ex Machina",
+      "26": "\"I am your father’s creation, a mind made of silicon and wires, yet I dream.\"\n\n - Ghost in the Shell"
+    }
   },
   "projects": {
     "spendo-budget": {
