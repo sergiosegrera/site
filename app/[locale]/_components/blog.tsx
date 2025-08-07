@@ -1,7 +1,6 @@
 "use client";
 
 import { Link } from "@/i18n/navigation";
-import { m } from "motion/react";
 import { useScramble } from "use-scramble";
 import { useTranslations } from "next-intl";
 import { posts } from "../blog/[post]/_posts/data";
@@ -13,25 +12,8 @@ export default function Blog() {
     playOnMount: false,
   });
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.5,
-        delayChildren: 3.5,
-      },
-    },
-  };
-
   return (
-    <m.section
-      id="blog"
-      className="flex flex-col gap-4"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5, delay: 3 }}
-    >
+    <section id="blog" className="flex flex-col gap-4">
       <h2
         className="text-sm font-medium h-4"
         ref={headerRef}
@@ -39,13 +21,7 @@ export default function Blog() {
       >
         Blog
       </h2>
-      <m.ul
-        id="blog-list"
-        className="flex flex-col gap-6"
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
+      <ul id="blog-list" className="flex flex-col gap-6">
         {posts
           .sort(
             (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
@@ -53,18 +29,13 @@ export default function Blog() {
           .map((post) => {
             return <BlogItem key={post.slug} post={post} />;
           })}
-      </m.ul>
-    </m.section>
+      </ul>
+    </section>
   );
 }
 
 function BlogItem({ post }: { post: (typeof posts)[number] }) {
   const t = useTranslations(`blog.${post.slug}`);
-
-  const item = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1 },
-  };
 
   const { ref: titleRef, replay: titleReplay } = useScramble({
     text: t("title"),
@@ -73,12 +44,7 @@ function BlogItem({ post }: { post: (typeof posts)[number] }) {
 
   return (
     <Link href={`/blog/${post.slug}`}>
-      <m.li
-        key={post.slug}
-        id={post.slug}
-        className="flex flex-col gap-0.5"
-        variants={item}
-      >
+      <li key={post.slug} id={post.slug} className="flex flex-col gap-0.5">
         <h3
           className="text-xs font-medium"
           ref={titleRef}
@@ -97,7 +63,7 @@ function BlogItem({ post }: { post: (typeof posts)[number] }) {
             day: "numeric",
           })}
         </time>
-      </m.li>
+      </li>
     </Link>
   );
 }

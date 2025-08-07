@@ -80,7 +80,7 @@ export default async function HomePage({
           <Content />
         </MdxLayout>
 
-        <Contact animate={false} />
+        <Contact />
       </main>
     );
   } catch (error) {

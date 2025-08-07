@@ -7,11 +7,10 @@ import {
   LucideMail,
 } from "lucide-react";
 import { useScramble } from "use-scramble";
-import { m } from "motion/react";
 import { useTranslations } from "next-intl";
 import QuoteStickyNote from "@/components/quote-sticky-note";
 
-export default function Contact({ animate = true }: { animate?: boolean }) {
+export default function Contact() {
   const t = useTranslations("home");
 
   const { ref, replay } = useScramble({
@@ -20,24 +19,12 @@ export default function Contact({ animate = true }: { animate?: boolean }) {
   });
 
   return (
-    <m.section
-      id="contact"
-      className="flex flex-row gap-4 text-xs relative"
-      initial={animate ? { opacity: 0 } : false}
-      animate={animate ? { opacity: 1 } : false}
-      transition={animate ? { duration: 0.5, delay: 4.5 } : undefined}
-    >
+    <section id="contact" className="flex flex-row gap-4 text-xs relative">
       <div className="flex flex-col gap-2 flex-1">
         <h2 className="text-sm font-medium h-4" ref={ref} onMouseEnter={replay}>
           {t("contact")}
         </h2>
-        <m.ul
-          id="contact-list"
-          className="flex flex-col gap-2 text-slate-500"
-          initial={animate ? { opacity: 0 } : false}
-          animate={animate ? { opacity: 1 } : false}
-          transition={animate ? { duration: 0.5, delay: 5 } : undefined}
-        >
+        <ul id="contact-list" className="flex flex-col gap-2 text-slate-500">
           <li id="email" className="flex flex-row gap-1 items-center group">
             <LucideMail
               className="inline-block mr-1 text-slate-400"
@@ -89,9 +76,9 @@ export default function Contact({ animate = true }: { animate?: boolean }) {
               {t("bookACall")}
             </a>
           </li>
-        </m.ul>
+        </ul>
       </div>
       <QuoteStickyNote />
-    </m.section>
+    </section>
   );
 }

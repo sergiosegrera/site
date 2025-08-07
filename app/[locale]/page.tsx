@@ -1,5 +1,4 @@
 import { LucideMapPin } from "lucide-react";
-import { LazyMotion, domAnimation } from "motion/react";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
 import Bio from "./_components/bio";
@@ -41,19 +40,17 @@ export default async function Home() {
           <LanguageSwitcher />
         </div>
       </nav>
-      <LazyMotion features={domAnimation}>
-        {/* Bio */}
-        <Bio />
+      {/* Bio */}
+      <Bio />
 
-        {/* Projects */}
-        <Projects />
+      {/* Projects */}
+      <Projects />
 
-        {/* Blog */}
-        <Blog />
+      {/* Blog */}
+      <Blog />
 
-        {/* Contact */}
-        <Contact />
-      </LazyMotion>
+      {/* Contact */}
+      <Contact />
     </main>
   );
 }

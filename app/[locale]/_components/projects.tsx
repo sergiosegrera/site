@@ -1,6 +1,5 @@
 "use client";
 
-import { m } from "motion/react";
 import { useScramble } from "use-scramble";
 import { useTranslations } from "next-intl";
 import HoverImage from "@/components/hover-image";
@@ -30,25 +29,8 @@ export default function Projects() {
     playOnMount: false,
   });
 
-  const container = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.5,
-        delayChildren: 1.5,
-      },
-    },
-  };
-
   return (
-    <m.section
-      id="projects"
-      className="flex flex-col gap-4"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5, delay: 1 }}
-    >
+    <section id="projects" className="flex flex-col gap-4">
       <h2
         className="text-sm font-medium h-4"
         ref={headerRef}
@@ -56,18 +38,12 @@ export default function Projects() {
       >
         {t("previousEndeavors")}
       </h2>
-      <m.ul
-        id="project-list"
-        className="flex flex-col gap-6"
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
+      <ul id="project-list" className="flex flex-col gap-6">
         {projects.map((project) => (
           <ProjectItem key={project.slug} project={project} />
         ))}
-      </m.ul>
-    </m.section>
+      </ul>
+    </section>
   );
 }
 
@@ -78,11 +54,6 @@ export const ProjectItem = ({
 }) => {
   const t = useTranslations(`projects.${project.slug}`);
 
-  const item = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1 },
-  };
-
   const { ref: titleRef, replay: titleReplay } = useScramble({
     text: t("title"),
     playOnMount: false,
@@ -90,10 +61,9 @@ export const ProjectItem = ({
 
   return (
     <Link href={project.url} target="_blank">
-      <m.li
+      <li
         id={project.slug}
         className="grid grid-cols-[48px_1fr] gap-3 items-start group"
-        variants={item}
       >
         <HoverImage
           blurredImage={`/static/${project.slug}-blur.png`}
@@ -113,7 +83,7 @@ export const ProjectItem = ({
           </div>
           <p className="text-xs text-slate-500">{t("description")}</p>
         </div>
-      </m.li>
+      </li>
     </Link>
   );
 };
