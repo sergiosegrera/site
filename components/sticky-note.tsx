@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
 const colors = {
@@ -35,6 +36,8 @@ export default function StickyNote({
   children?: React.ReactNode;
   folded?: boolean;
 }) {
+  const audioRef = useRef<HTMLAudioElement>(null);
+
   return (
     // Container
     <button
@@ -47,7 +50,10 @@ export default function StickyNote({
         left: position?.x ?? 0,
       }}
       className="flex flex-col aspect-square hover:scale-[1.025] transition-all duration-300 cursor-pointer drop-shadow-sm"
-      onClick={onClick}
+      onClick={() => {
+        audioRef.current?.play();
+        onClick?.();
+      }}
       suppressHydrationWarning
     >
       <div
@@ -60,6 +66,7 @@ export default function StickyNote({
         {children}
       </div>
       {/* Sticky note folded corner */}
+      <audio ref={audioRef} src="/static/sticky-note.mp3" />
       <div className="h-6 flex w-full">
         <div
           className={cn(
