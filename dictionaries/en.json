@@ -53,6 +53,7 @@
     }
   },
   "blog": {
+    "title": "Blog",
     "how-to-build-web-apps-fast": {
       "title": "How to build web apps fast",
       "description": "Learn the modern web development stack that leverages AI for rapid application building. Complete guide to Next.js, Drizzle ORM, shadcn/ui, and deployment best practices for 2025."
@@ -60,6 +61,80 @@
     "recreating-vercels-book-component": {
       "title": "Recreating Vercel's Book Component",
       "description": "Lessons on how I recreated Vercel's book component using React and Tailwind CSS."
+    }
+  },
+  "travels": {
+    "title": "Travel Log",
+    "subtitle": "A digital travel log of places I have visited. Pictures my me.",
+    "2025": {
+      "gr": {
+        "name": "Athens & Ios",
+        "d": "Mediterranean blues, olives & gyros"
+      },
+      "gb": {
+        "name": "London",
+        "d": "Can't get enough"
+      },
+      "jp": {
+        "name": "Tokyo, Kyoto & Osaka",
+        "d": "Tradition"
+      },
+      "kr": {
+        "name": "Seoul",
+        "d": "Dynamic"
+      },
+      "vn": {
+        "name": "Hanoi & Da Nang",
+        "d": "Beautifully chaotic"
+      },
+      "th": {
+        "name": "Phuket & Bangkok",
+        "d": "Sabai sabai"
+      },
+      "tr": {
+        "name": "Istanbul",
+        "d": "Short layover, will be back"
+      }
+    },
+    "2024": {
+      "fr": {
+        "name": "Paris",
+        "d": "Castles & gardens"
+      },
+      "gb": {
+        "name": "London",
+        "d": "Old + new"
+      },
+      "pt": {
+        "name": "Porto",
+        "d": "Discovery"
+      }
+    },
+    "2023": {
+      "pt": {
+        "name": "Lisbon",
+        "d": "Huge waves & cool breeze"
+      },
+      "es": {
+        "name": "Valencia & Barcelona",
+        "d": "Beautiful architecture"
+      },
+      "fr": {
+        "name": "Nice, Marseille & Paris",
+        "d": "Calm, inspiring & fashionable"
+      },
+      "mc": {
+        "name": "Monaco",
+        "d": "Royalty, yachts & cars"
+      },
+      "it": {
+        "name": "Genoa, Pisa, Florence & Rome",
+        "d": "History, art & burrata"
+      },
+      "mx": {
+        "name": "Cancun",
+        "d": "Restorative"
+      }
     }
   }
 }

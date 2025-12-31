@@ -1,7 +1,7 @@
-import Spline from "@splinetool/react-spline/next";
 import { LucideMapPin } from "lucide-react";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
+import GlobeScene from "@/components/globe";
 import Bio from "./_components/bio";
 import Blog from "./_components/blog";
 import Contact from "./_components/contact";
@@ -54,10 +54,10 @@ export default async function Home() {
       {/* Travel Log */}
       <TravelLog />
 
-      <Spline
-        scene="https://prod.spline.design/lQe5bJx60odr-5g6/scene.splinecode"
-        className="size-16"
-      />
+      {/* <div className="absolute w-screen h-screen">
+        <GlobeScene />
+      </div> */}
+
       {/* Contact */}
       <Contact />
     </main>

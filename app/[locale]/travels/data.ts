@@ -2,81 +2,70 @@ const travels = {
   2025: [
     {
       code: "gr",
-      name: "Athens, Ios",
-      picture_count: 0,
+      picture_count: 8,
     },
     {
       code: "gb",
-      name: "London",
-      picture_count: 0,
+      picture_count: 5,
     },
     {
       code: "jp",
-      name: "Tokyo, Kyoto, Osaka",
-      picture_count: 0,
+      picture_count: 8,
     },
     {
       code: "kr",
-      name: "Seoul",
-      picture_count: 0,
+      picture_count: 5,
     },
     {
       code: "vn",
-      name: "Hanoi, Da Nang",
-      picture_count: 0,
+      picture_count: 10,
     },
     {
       code: "th",
-      name: "Bangkok, Phuket",
-      picture_count: 0,
+      picture_count: 9,
+    },
+    {
+      code: "tr",
+      picture_count: 3,
     },
   ],
   2024: [
     {
       code: "fr",
-      name: "Paris",
-      picture_count: 0,
+      picture_count: 3,
     },
     {
       code: "gb",
-      name: "London",
-      picture_count: 0,
+      picture_count: 4,
     },
     {
       code: "pt",
-      name: "Lisbon",
-      picture_count: 0,
+      picture_count: 4,
     },
   ],
   2023: [
     {
       code: "pt",
-      name: "Lisbon",
       picture_count: 5,
     },
     {
       code: "es",
-      name: "Valencia, Barcelona",
       picture_count: 8,
     },
     {
       code: "fr",
-      name: "Nice, Paris",
       picture_count: 5,
     },
     {
       code: "mc",
-      name: "Monaco",
       picture_count: 3,
     },
     {
       code: "it",
-      name: "Genoa, Pisa, Firenze, Roma",
       picture_count: 10,
     },
     {
       code: "mx",
-      name: "Cancun",
       picture_count: 5,
     },
   ],

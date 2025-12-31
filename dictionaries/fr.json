@@ -53,6 +53,7 @@
     }
   },
   "blog": {
+    "title": "Blog",
     "how-to-build-web-apps-fast": {
       "title": "Comment développer des applications web rapidement",
       "description": "Découvrez la stack de développement web moderne qui exploite l'IA pour créer rapidement des applications. Guide complet sur Next.js, Drizzle ORM, shadcn/ui et les bonnes pratiques de déploiement pour 2025."
@@ -60,6 +61,80 @@
     "recreating-vercels-book-component": {
       "title": "Recréer le composant de livre de Vercel",
       "description": "Apprenez comment j'ai recréé le composant de livre de Vercel en utilisant React et Tailwind CSS."
+    }
+  },
+  "travels": {
+    "title": "Carnet de Voyage",
+    "subtitle": "Un journal numérique des lieux que j'ai visités. Photos par moi.",
+    "2025": {
+      "gr": {
+        "name": "Athènes & Ios",
+        "d": "Bleus méditerranéens, olives & gyros"
+      },
+      "gb": {
+        "name": "Londres",
+        "d": "Je n'en ai jamais assez"
+      },
+      "jp": {
+        "name": "Tokyo, Kyoto & Osaka",
+        "d": "Tradition"
+      },
+      "kr": {
+        "name": "Séoul",
+        "d": "Dynamique"
+      },
+      "vn": {
+        "name": "Hanoï & Da Nang",
+        "d": "Magnifiquement chaotique"
+      },
+      "th": {
+        "name": "Phuket & Bangkok",
+        "d": "Sabai sabai"
+      },
+      "tr": {
+        "name": "Istanbul",
+        "d": "Courte escale, je reviendrai"
+      }
+    },
+    "2024": {
+      "fr": {
+        "name": "Paris",
+        "d": "Châteaux & jardins"
+      },
+      "gb": {
+        "name": "Londres",
+        "d": "Ancien + nouveau"
+      },
+      "pt": {
+        "name": "Porto",
+        "d": "Découverte"
+      }
+    },
+    "2023": {
+      "pt": {
+        "name": "Lisbonne",
+        "d": "Vagues immenses & brise fraîche"
+      },
+      "es": {
+        "name": "Valence & Barcelone",
+        "d": "Belle architecture"
+      },
+      "fr": {
+        "name": "Nice, Marseille & Paris",
+        "d": "Calme, inspirant & élégant"
+      },
+      "mc": {
+        "name": "Monaco",
+        "d": "Royauté, yachts & voitures"
+      },
+      "it": {
+        "name": "Gênes, Pise, Florence & Rome",
+        "d": "Histoire, art & burrata"
+      },
+      "mx": {
+        "name": "Cancún",
+        "d": "Ressourçant"
+      }
     }
   }
 }

@@ -1,58 +1,67 @@
 import { LucideMapPin } from "lucide-react";
 import Image from "next/image";
+import { getTranslations } from "next-intl/server";
 import Header from "@/components/header";
-import PictureStack, { type Picture } from "@/components/picture-stack";
+import PictureStack, {
+  type Picture,
+  PictureStackProvider,
+} from "@/components/picture-stack";
 import Contact from "../_components/contact";
 import TRAVEL_DATA from "./data";
 
-type TravelPlace = {
-  code: string | null;
-  name: string;
-  pictures: Picture[];
-};
-
 export default async function TravelsPage() {
+  const t = await getTranslations("travels");
+
   return (
-    <main className="md:w-[600px] mx-auto my-8 md:my-16 px-4 flex flex-col gap-12">
-      <Header />
-      <div className="flex flex-col gap-4">
-        {Object.keys(TRAVEL_DATA)
-          .reverse()
-          .map((year) => {
-            return (
-              <div key={year} className="flex flex-col gap-4 mb-4">
-                <h2>{year}</h2>
-                {TRAVEL_DATA[year].map(
-                  (place: {
-                    code: string;
-                    picture_count: number;
-                    name: string;
-                  }) => {
-                    return (
-                      <Place
-                        name={place.name}
-                        pictures={[...Array(place.picture_count).keys()].map(
-                          (i) => {
-                            return {
+    <PictureStackProvider>
+      <main className="md:w-[600px] mx-auto my-8 md:my-16 px-4 flex flex-col gap-12">
+        <Header />
+        <div className="flex flex-col gap-4">
+          {(
+            Object.keys(TRAVEL_DATA) as unknown as Array<
+              keyof typeof TRAVEL_DATA
+            >
+          )
+            .reverse()
+            .map((year) => {
+              return (
+                <div key={year} className="flex flex-col gap-4 mb-4">
+                  <h2>{year}</h2>
+                  {TRAVEL_DATA[year].map(
+                    (place: { code: string; picture_count: number }) => {
+                      const key = `${year}.${place.code}`;
+                      const name = t.has(`${key}.name`)
+                        ? t(`${key}.name`)
+                        : null;
+                      const description = t.has(`${key}.d`)
+                        ? t(`${key}.d`)
+                        : null;
+
+                      return (
+                        <Place
+                          name={name}
+                          pictures={Array.from(
+                            { length: place.picture_count },
+                            (_, i) => ({
                               src: `/static/travels/${year}/${place.code}-${i + 1}.jpeg`,
                               alt: `${place.code}-${i + 1}`,
-                            };
-                          },
-                        )}
-                        code={place.code}
-                        key={place.name}
-                      >
-                        it was a nice place
-                      </Place>
-                    );
-                  },
-                )}
-              </div>
-            );
-          })}
-      </div>
-      <Contact />
-    </main>
+                            }),
+                          )}
+                          code={place.code}
+                          key={key}
+                        >
+                          {description}
+                        </Place>
+                      );
+                    },
+                  )}
+                </div>
+              );
+            })}
+        </div>
+        <Contact />
+      </main>
+    </PictureStackProvider>
   );
 }
 
@@ -62,7 +71,7 @@ function Place({
   children,
   pictures,
 }: {
-  name: string;
+  name: string | null;
   code: string | null;
   children: React.ReactNode;
   pictures: Picture[];
@@ -83,7 +92,7 @@ function Place({
               className="rounded border border-slate-500"
             />
           )}
-          <h3 className="text-sm ml-2">{name}</h3>
+          <h3 className="text-sm ml-2">{name ?? "?"}</h3>
         </div>
         <p className="text-slate-500 text-xs">{children}</p>
       </div>
