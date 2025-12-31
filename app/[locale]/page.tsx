@@ -1,7 +1,6 @@
 import { LucideMapPin } from "lucide-react";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
-import GlobeScene from "@/components/globe";
 import Bio from "./_components/bio";
 import Blog from "./_components/blog";
 import Contact from "./_components/contact";
@@ -53,10 +52,6 @@ export default async function Home() {
 
       {/* Travel Log */}
       <TravelLog />
-
-      {/* <div className="absolute w-screen h-screen">
-        <GlobeScene />
-      </div> */}
 
       {/* Contact */}
       <Contact />
