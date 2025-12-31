@@ -1,3 +1,4 @@
+import Spline from "@splinetool/react-spline/next";
 import { LucideMapPin } from "lucide-react";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
@@ -6,6 +7,7 @@ import Blog from "./_components/blog";
 import Contact from "./_components/contact";
 import LanguageSwitcher from "./_components/language-switcher";
 import Projects from "./_components/projects";
+import TravelLog from "./_components/travel-log";
 
 export default async function Home() {
   const t = await getTranslations("home");
@@ -49,6 +51,13 @@ export default async function Home() {
       {/* Blog */}
       <Blog />
 
+      {/* Travel Log */}
+      <TravelLog />
+
+      <Spline
+        scene="https://prod.spline.design/lQe5bJx60odr-5g6/scene.splinecode"
+        className="size-16"
+      />
       {/* Contact */}
       <Contact />
     </main>

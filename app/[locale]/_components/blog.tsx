@@ -1,10 +1,10 @@
 "use client";
 
-import { Link } from "@/i18n/navigation";
-import { useScramble } from "use-scramble";
-import { useTranslations } from "next-intl";
-import { posts } from "../blog/[post]/_posts/data";
 import { CalendarIcon } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { useScramble } from "use-scramble";
+import { Link } from "@/i18n/navigation";
+import { posts } from "../blog/[post]/_posts/data";
 
 export default function Blog() {
   const { ref: headerRef, replay: headerReplay } = useScramble({
@@ -46,14 +46,14 @@ function BlogItem({ post }: { post: (typeof posts)[number] }) {
     <Link href={`/blog/${post.slug}`}>
       <li key={post.slug} id={post.slug} className="flex flex-col gap-0.5">
         <h3
-          className="text-xs font-medium"
+          className="text-xs font-medium underline"
           ref={titleRef}
           onMouseEnter={titleReplay}
         >
           {t("title")}
         </h3>
         <time
-          className="text-xs text-slate-500 flex gap-1"
+          className="text-xs text-slate-500 flex gap-1 items-center"
           dateTime={post.date}
         >
           <CalendarIcon size={12} />

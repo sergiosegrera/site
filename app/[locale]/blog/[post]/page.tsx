@@ -1,12 +1,12 @@
-import { routing } from "@/i18n/routing";
-import MdxLayout from "@/components/mdx-layout";
-import { notFound } from "next/navigation";
-import Image from "next/image";
 import { LucideMapPin } from "lucide-react";
-import LanguageSwitcher from "../../_components/language-switcher";
-import { Link } from "@/i18n/navigation";
-import Contact from "../../_components/contact";
+import Image from "next/image";
+import { notFound } from "next/navigation";
 import { getTranslations } from "next-intl/server";
+import MdxLayout from "@/components/mdx-layout";
+import { Link } from "@/i18n/navigation";
+import { routing } from "@/i18n/routing";
+import Contact from "../../_components/contact";
+import LanguageSwitcher from "../../_components/language-switcher";
 import { posts } from "./_posts/data";
 
 export function generateStaticParams() {
@@ -30,7 +30,7 @@ export async function generateMetadata({
   };
 }
 
-export default async function HomePage({
+export default async function BlogPage({
   params,
 }: {
   params: Promise<{ locale: string; post: string }>;
