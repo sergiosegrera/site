@@ -12,6 +12,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 1,
   }));
 
+  const travels: MetadataRoute.Sitemap = locales.map((locale) => ({
+    url: `${baseUrl}/${locale}/travels`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 1,
+  }));
+
   const blogs: MetadataRoute.Sitemap = posts.flatMap((post) =>
     locales.map((locale) => ({
       url: `${baseUrl}/${locale}/blog/${post.slug}`,
@@ -24,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...pages,
     ...blogs,
+    ...travels,
     {
       url: `${baseUrl}`,
       lastModified: new Date(),
