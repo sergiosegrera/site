@@ -90,6 +90,7 @@ function Place({
               height={16}
               unoptimized
               className="rounded border border-slate-500"
+              priority
             />
           )}
           <h3 className="text-sm ml-2">{name ?? "?"}</h3>

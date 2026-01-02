@@ -91,7 +91,6 @@ export default function PictureStack({ pictures }: { pictures: Picture[] }) {
             alt={picture.alt}
             fill
             className="object-cover"
-            priority
           />
         </div>
       ))}
