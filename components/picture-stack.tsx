@@ -173,8 +173,45 @@ export function PictureStackProvider({ children }: { children: ReactNode }) {
     }
   }, [isOpen]);
 
+  useEffect(() => {
+    if (!isOpen) return;
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    const handleTouchStart = (e: TouchEvent) => {
+      touchStartX = e.changedTouches[0].screenX;
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleSwipe();
+    };
+
+    const handleSwipe = () => {
+      const swipeThreshold = 50;
+      const diff = touchStartX - touchEndX;
+
+      if (Math.abs(diff) > swipeThreshold) {
+        if (diff > 0) {
+          goToNext();
+        } else {
+          goToPrevious();
+        }
+      }
+    };
+
+    window.addEventListener("touchstart", handleTouchStart);
+    window.addEventListener("touchend", handleTouchEnd);
+
+    return () => {
+      window.removeEventListener("touchstart", handleTouchStart);
+      window.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [isOpen, goToNext, goToPrevious]);
+
   return (
-    <PictureStackContext.Provider value={{ openOverlay, closeOverlay }}>
+    <PictureStackContext value={{ openOverlay, closeOverlay }}>
       {children}
       {pictures && (
         <div
@@ -277,6 +314,6 @@ export function PictureStackProvider({ children }: { children: ReactNode }) {
           </div>
         </div>
       )}
-    </PictureStackContext.Provider>
+    </PictureStackContext>
   );
 }

@@ -22,6 +22,7 @@ export default function TravelLog() {
           height={64}
           alt="Rotating Earth"
           className="object-fit"
+          unoptimized
         />
         <div className="flex-col flex gap-1">
           <h2
