@@ -19,6 +19,7 @@ import {
 export type Picture = {
   src: string;
   alt: string;
+  blurDataURL?: string;
 };
 
 type PictureStackContextType = {
@@ -91,6 +92,8 @@ export default function PictureStack({ pictures }: { pictures: Picture[] }) {
             alt={picture.alt}
             fill
             className="object-cover"
+            placeholder={picture.blurDataURL ? "blur" : undefined}
+            blurDataURL={picture.blurDataURL}
           />
         </div>
       ))}
@@ -214,8 +217,8 @@ export function PictureStackProvider({ children }: { children: ReactNode }) {
     <PictureStackContext value={{ openOverlay, closeOverlay }}>
       {children}
       {pictures && (
-        <button
-          type="button"
+        // biome-ignore lint/a11y/useSemanticElements: <its the overlay, not really a button>
+        <div
           className={`fixed inset-0 z-50 bg-black/95 transition-opacity duration-300 h-screen supports-[height:100dvh]:h-dvh ${
             isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
@@ -224,6 +227,13 @@ export function PictureStackProvider({ children }: { children: ReactNode }) {
             overscrollBehavior: "none",
           }}
           onClick={closeOverlay}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              closeOverlay();
+            }
+          }}
+          role="button"
+          tabIndex={isOpen ? 0 : -1}
           aria-label="Close image overlay"
         >
           <button
@@ -243,15 +253,31 @@ export function PictureStackProvider({ children }: { children: ReactNode }) {
               role="dialog"
               aria-label="Image viewer"
             >
-              <div className="relative w-full h-full flex items-center justify-center">
-                <Image
-                  src={pictures[currentIndex].src}
-                  alt={pictures[currentIndex].alt}
-                  fill
-                  className="object-contain"
-                  sizes="(max-width: 1280px) 100vw, 1280px"
-                  priority
-                />
+              <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+                <div
+                  className="flex transition-transform duration-500 ease-out w-full h-full"
+                  style={{
+                    transform: `translateX(-${currentIndex * 100}%)`,
+                  }}
+                >
+                  {pictures.map((pic, index) => (
+                    <div
+                      key={`${pic.src}-${index}`}
+                      className="relative min-w-full h-full flex-shrink-0"
+                    >
+                      <Image
+                        src={pic.src}
+                        alt={pic.alt}
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 1280px) 100vw, 1280px"
+                        priority={index === currentIndex}
+                        placeholder={pic.blurDataURL ? "blur" : undefined}
+                        blurDataURL={pic.blurDataURL}
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {pictures.length > 1 && (
@@ -308,7 +334,7 @@ export function PictureStackProvider({ children }: { children: ReactNode }) {
               )}
             </div>
           </div>
-        </button>
+        </div>
       )}
     </PictureStackContext>
   );

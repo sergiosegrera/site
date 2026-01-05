@@ -1,3 +1,5 @@
+import fs from "node:fs";
+import path from "node:path";
 import { LucideMapPin } from "lucide-react";
 import Image from "next/image";
 import { getTranslations } from "next-intl/server";
@@ -42,10 +44,30 @@ export default async function TravelsPage() {
                           name={name}
                           pictures={Array.from(
                             { length: place.picture_count },
-                            (_, i) => ({
-                              src: `/static/travels/${year}/${place.code}-${i + 1}.jpeg`,
-                              alt: `${place.code}-${i + 1}`,
-                            }),
+                            (_, i) => {
+                              const src = `/static/travels/${year}/${place.code}-${i + 1}.jpeg`;
+                              const blurRelativePath = `static/travels/${year}/${place.code}-${i + 1}-blur.jpeg`;
+                              const blurAbsolutePath = path.join(
+                                process.cwd(),
+                                "public",
+                                blurRelativePath,
+                              );
+                              let blurDataURL: string | undefined;
+
+                              if (fs.existsSync(blurAbsolutePath)) {
+                                const buffer =
+                                  fs.readFileSync(blurAbsolutePath);
+                                blurDataURL = `data:image/jpeg;base64,${buffer.toString(
+                                  "base64",
+                                )}`;
+                              }
+
+                              return {
+                                src,
+                                alt: `${place.code}-${i + 1}`,
+                                blurDataURL,
+                              };
+                            },
                           )}
                           code={place.code}
                           key={key}
