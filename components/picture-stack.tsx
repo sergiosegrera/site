@@ -40,6 +40,12 @@ export default function PictureStack({ pictures }: { pictures: Picture[] }) {
   const { openOverlay } = usePictureStack();
   //   const [isAnimating, setIsAnimating] = useState(false);
 
+  const handleClick = () => {
+    // setIsAnimating(true);
+    openOverlay(pictures);
+    //   setIsAnimating(false);
+  };
+
   if (pictures.length < 1) {
     return (
       <div className="bg-slate-200 w-[64px] h-[64px] rounded border-2 border-b-8 border-white shadow flex items-center justify-center text-white hover:scale-105 transition-transform duration-300 ease-out cursor-not-allowed">
@@ -47,12 +53,6 @@ export default function PictureStack({ pictures }: { pictures: Picture[] }) {
       </div>
     );
   }
-
-  const handleClick = () => {
-    // setIsAnimating(true);
-    openOverlay(pictures);
-    //   setIsAnimating(false);
-  };
 
   return (
     <button
@@ -214,7 +214,8 @@ export function PictureStackProvider({ children }: { children: ReactNode }) {
     <PictureStackContext value={{ openOverlay, closeOverlay }}>
       {children}
       {pictures && (
-        <div
+        <button
+          type="button"
           className={`fixed inset-0 z-50 bg-black/95 transition-opacity duration-300 h-screen supports-[height:100dvh]:h-dvh ${
             isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
           }`}
@@ -223,13 +224,7 @@ export function PictureStackProvider({ children }: { children: ReactNode }) {
             overscrollBehavior: "none",
           }}
           onClick={closeOverlay}
-          onKeyDown={(e) => {
-            if (e.key === "Enter" || e.key === " ") {
-              closeOverlay();
-            }
-          }}
-          role="button"
-          tabIndex={0}
+          aria-label="Close image overlay"
         >
           <button
             type="button"
@@ -245,7 +240,8 @@ export function PictureStackProvider({ children }: { children: ReactNode }) {
               className="relative w-full h-full max-w-5xl max-h-[90vh] flex items-center justify-center"
               onClick={(e) => e.stopPropagation()}
               onKeyDown={(e) => e.stopPropagation()}
-              role="presentation"
+              role="dialog"
+              aria-label="Image viewer"
             >
               <div className="relative w-full h-full flex items-center justify-center">
                 <Image
@@ -312,7 +308,7 @@ export function PictureStackProvider({ children }: { children: ReactNode }) {
               )}
             </div>
           </div>
-        </div>
+        </button>
       )}
     </PictureStackContext>
   );
