@@ -6,6 +6,7 @@ import { getTranslations } from "next-intl/server";
 import Header from "@/components/header";
 import PictureStack, {
   type Picture,
+  PictureStackClickArea,
   PictureStackProvider,
 } from "@/components/picture-stack";
 import Contact from "../_components/contact";
@@ -99,7 +100,7 @@ function Place({
   pictures: Picture[];
 }) {
   return (
-    <div className="flex gap-8">
+    <PictureStackClickArea pictures={pictures}>
       <PictureStack pictures={pictures} />
       <div className="flex-col flex gap-1 mt-1">
         <div className="flex items-center">
@@ -119,6 +120,6 @@ function Place({
         </div>
         <p className="text-slate-500 text-xs">{children}</p>
       </div>
-    </div>
+    </PictureStackClickArea>
   );
 }

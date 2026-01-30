@@ -37,6 +37,39 @@ export function usePictureStack() {
   return context;
 }
 
+export function PictureStackClickArea({
+  pictures,
+  children,
+}: {
+  pictures: Picture[];
+  children: ReactNode;
+}) {
+  const { openOverlay } = usePictureStack();
+
+  const handleClick = () => {
+    if (pictures.length > 0) {
+      openOverlay(pictures);
+    }
+  };
+
+  return (
+    // biome-ignore lint/a11y/useSemanticElements: wrapper needs to contain button children
+    <div
+      onClick={handleClick}
+      onKeyDown={(e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          handleClick();
+        }
+      }}
+      role="button"
+      tabIndex={0}
+      className="flex gap-8 cursor-pointer"
+    >
+      {children}
+    </div>
+  );
+}
+
 export default function PictureStack({ pictures }: { pictures: Picture[] }) {
   const { openOverlay } = usePictureStack();
   //   const [isAnimating, setIsAnimating] = useState(false);
