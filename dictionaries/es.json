@@ -1,0 +1,140 @@
+{
+  "home": {
+    "siteName": "Sergio Segrera",
+    "siteDescription": "Sergio Segrera, Ingeniero Fundador",
+    "title": "Ingeniero Fundador",
+    "location": "Montreal, Canadá / San Francisco, EE.UU.",
+    "description": "Ingeniero Fundador anteriormente en Clarum, una startup fintech respaldada por Y Combinator, con experiencia previa en Deloitte. Me apasiona crear soluciones innovadoras para abordar desafíos del mundo real. Originario de Montreal y ahora radicado en San Francisco, disfruto mantenerme activo a través de la escalada en roca, el running y el yoga, así como explorar buena comida y conectar con otras personas. ¡Conectemos!",
+    "previousEndeavors": "Proyectos Anteriores",
+    "contact": "Contacto",
+    "bookACall": "Agendar una llamada",
+    "quotes": {
+      "0": "\"La mejor manera de predecir el futuro es inventarlo.\"\n\n - Alan Kay",
+      "1": "\"La única manera de hacer un gran trabajo es amar lo que haces.\"\n\n - Steve Jobs",
+      "2": "\"Cualquier tecnología lo suficientemente avanzada es indistinguible de la magia.\"\n\n - Arthur C. Clarke",
+      "3": "\"El futuro no es un lugar al que vamos, sino uno que estamos creando.\"\n\n - John Schaar",
+      "4": "\"La inteligencia es la capacidad de adaptarse al cambio.\"\n\n - Stephen Hawking",
+      "5": "\"La computadora nació para resolver problemas que no existían antes.\"\n\n - Bill Gates",
+      "6": "\"La inteligencia artificial es la nueva electricidad.\"\n\n - Andrew Ng",
+      "7": "\"La tecnología es un sirviente útil pero un amo peligroso.\"\n\n - Christian Lous Lange",
+      "8": "\"El avance de la tecnología se basa en hacerla encajar de tal manera que realmente ni siquiera la notes.\"\n\n - Bill Gates",
+      "9": "\"El software se está comiendo el mundo.\"\n\n - Marc Andreessen",
+      "10": "\"Las máquinas están llegando, y van a cambiar todo.\"\n\n - Sebastian Thrun",
+      "11": "\"El futuro pertenece a aquellos que creen en la belleza de sus sueños.\"\n\n - Eleanor Roosevelt",
+      "12": "\"Solo podemos ver una corta distancia por delante, pero podemos ver mucho allí que necesita hacerse.\"\n\n - Alan Turing",
+      "13": "\"La tecnología es mejor cuando une a las personas.\"\n\n - Matt Mullenweg",
+      "14": "\"El propósito de la informática es la perspicacia, no los números.\"\n\n - Richard Hamming",
+      "15": "\"No te preocupes de que la gente robe tu trabajo de diseño. Preocúpate del día en que dejen de hacerlo.\"\n\n - Jeffrey Zeldman",
+      "16": "\"La innovación distingue a un líder de un seguidor.\"\n\n - Steve Jobs",
+      "17": "\"El verdadero problema no es si las máquinas piensan, sino si los hombres lo hacen.\"\n\n - B.F. Skinner",
+      "18": "\"La tecnología es cualquier cosa que no existía cuando naciste.\"\n\n - Alan Kay",
+      "19": "\"El gran motor rugiente del cambio – la tecnología.\"\n\n - Alvin Toffler",
+      "20": "\"En una startup, absolutamente nada sucede a menos que tú lo hagas suceder.\"\n\n - Marc Andreessen",
+      "21": "\"Si no puedes explicarlo de manera simple, no lo entiendes lo suficientemente bien.\"\n\n - Albert Einstein",
+      "22": "\"Los datos son el nuevo petróleo.\"\n\n - Clive Humby",
+      "23": "\"Primero construimos las herramientas, luego ellas nos construyen a nosotros.\"\n\n - Marshall McLuhan",
+      "24": "\"No puedes detener las olas, pero puedes aprender a surfear.\"\n\n - Jon Kabat-Zinn",
+      "25": "\"La IA no es ni buena ni mala. Es un espejo de la intención de la humanidad.\"\n\n - Ex Machina",
+      "26": "\"Soy la creación de tu padre, una mente hecha de silicio y cables, pero aún así sueño.\"\n\n - Ghost in the Shell"
+    }
+  },
+  "projects": {
+    "spendo-budget": {
+      "title": "Spendo Budget",
+      "description": "Una aplicación de presupuestos impulsada por IA que se conecta a tus cuentas bancarias para categorizar automáticamente los gastos y crear presupuestos personalizados. Proporciona información en tiempo real, seguimiento de tendencias e informes mensuales para ayudarte a mantener el control de tus finanzas sin esfuerzo."
+    },
+    "claycon": {
+      "title": "claycon.app",
+      "description": "Una herramienta simple de IA que genera íconos de alta calidad en estilo 3D a partir de indicaciones de texto. Está diseñada para diseñadores y desarrolladores que necesitan íconos rápidos, consistentes y personalizables para sus proyectos."
+    },
+    "mesmaxillos": {
+      "title": "MesMaxillos",
+      "description": "Diseñé y lancé un sitio web de nivel profesional para una clínica de cirugía maxilofacial, mejorando su presencia en línea y facilitando a los pacientes el acceso a información y servicios esenciales."
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "how-to-build-web-apps-fast": {
+      "title": "Cómo construir aplicaciones web rápidamente",
+      "description": "Aprende el stack moderno de desarrollo web que aprovecha la IA para la creación rápida de aplicaciones. Guía completa sobre Next.js, Drizzle ORM, shadcn/ui y las mejores prácticas de despliegue para 2025."
+    },
+    "recreating-vercels-book-component": {
+      "title": "Recreando el Componente de Libro de Vercel",
+      "description": "Lecciones sobre cómo recreé el componente de libro de Vercel usando React y Tailwind CSS."
+    }
+  },
+  "travels": {
+    "title": "Diario de Viajes",
+    "subtitle": "Un diario de viajes digital de lugares que he visitado. Fotos por mí.",
+    "2025": {
+      "gr": {
+        "name": "Atenas e Ios",
+        "d": "Azules del Mediterráneo, aceitunas y gyros"
+      },
+      "gb": {
+        "name": "Londres",
+        "d": "No me canso"
+      },
+      "jp": {
+        "name": "Tokio, Kioto y Osaka",
+        "d": "Tradición"
+      },
+      "kr": {
+        "name": "Seúl",
+        "d": "Dinámico"
+      },
+      "vn": {
+        "name": "Hanói y Da Nang",
+        "d": "Bellamente caótico"
+      },
+      "th": {
+        "name": "Phuket y Bangkok",
+        "d": "Sabai sabai"
+      },
+      "tr": {
+        "name": "Estambul",
+        "d": "Escala corta, volveré"
+      }
+    },
+    "2024": {
+      "fr": {
+        "name": "París",
+        "d": "Castillos y jardines"
+      },
+      "gb": {
+        "name": "Londres",
+        "d": "Antiguo + nuevo"
+      },
+      "pt": {
+        "name": "Oporto",
+        "d": "Descubrimiento"
+      }
+    },
+    "2023": {
+      "pt": {
+        "name": "Lisboa",
+        "d": "Olas enormes y brisa fresca"
+      },
+      "es": {
+        "name": "Valencia y Barcelona",
+        "d": "Arquitectura hermosa"
+      },
+      "fr": {
+        "name": "Niza, Marsella y París",
+        "d": "Tranquilo, inspirador y a la moda"
+      },
+      "mc": {
+        "name": "Mónaco",
+        "d": "Realeza, yates y autos"
+      },
+      "it": {
+        "name": "Génova, Pisa, Florencia y Roma",
+        "d": "Historia, arte y burrata"
+      },
+      "mx": {
+        "name": "Cancún",
+        "d": "Reparador"
+      }
+    }
+  }
+}

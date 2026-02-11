@@ -1,0 +1,34 @@
+import DateTime from "@/components/datetime";
+import BookCodePreview from "./_components/BookCodePreview";
+
+# Recreando el Componente de Libro 3D de Vercel
+
+<DateTime date="2025-07-07" />
+
+He estado notando este elegante componente de libro 3D en varios sitios web últimamente, y me llamaba la atención cada vez que lo encontraba. Había algo hipnotizante en cómo parecía tener profundidad y dimensión reales, casi como si pudieras extender la mano y agarrarlo de la pantalla. Mi curiosidad finalmente me ganó, así que decidí arremangarme y descubrir exactamente cómo estaba construido.
+
+## La Investigación
+
+Inspeccionando el componente en el navegador, comencé a diseccionarlo pieza por pieza. Lo que descubrí fue elegantemente simple pero brillantemente ejecutado. Todo el efecto 3D se logró usando solo tres elementos HTML principales que representan diferentes partes de un libro físico:
+
+- **La portada frontal** - La cara principal con la que los usuarios interactúan
+- **Las páginas** - El grueso paquete de páginas que crea la profundidad del libro
+- **La contraportada** - La cara trasera que completa la ilusión
+
+La magia ocurre a través de transformaciones CSS, específicamente la función `rotate3d()`. Cada plano está posicionado y rotado en espacio 3D para crear la convincente ilusión de un libro real posado en tu pantalla. La portada frontal está al ras, las páginas se rotan al pasar el cursor para mostrar el grosor del libro, y la contraportada está posicionada para completar la forma 3D.
+
+## Siguiendo el Sistema de Diseño
+
+En lugar de reinventar la rueda, decidí seguir exactamente la misma interfaz de componente que Vercel usa en su [Sistema de Diseño Geist](https://vercel.com/geist/book).
+
+El componente acepta props para el color de portada del libro, título, textura y varias opciones de estilo.
+
+## El Resultado
+
+Después de algo de experimentación con orígenes de transformación, valores de perspectiva y posicionamiento, logré recrear el componente con fiel atención al impacto visual del original. La clave fue entender cómo los tres planos trabajan juntos para crear profundidad mientras mantienen animaciones suaves y efectos de hover.
+
+El componente responde bellamente a la interacción del usuario, con rotaciones sutiles y sombras que realzan la ilusión 3D sin ser abrumadoras.
+
+Aquí hay una vista previa del componente:
+
+<BookCodePreview />
