@@ -66,6 +66,20 @@
   "travels": {
     "title": "Carnet de Voyage",
     "subtitle": "Un journal numérique des lieux que j'ai visités. Photos par moi.",
+    "2026": {
+      "co": {
+        "name": "Bogotá, Medellín & Carthagène",
+        "d": "Café, montagnes & couleur"
+      },
+      "pe": {
+        "name": "Lima, Cusco & Machu Picchu",
+        "d": "Andes, ruines & ceviche"
+      },
+      "mx": {
+        "name": "Mexico, Oaxaca & Chichén Itzá",
+        "d": "Ruines, mezcal & couleur"
+      }
+    },
     "2025": {
       "gr": {
         "name": "Athènes & Ios",

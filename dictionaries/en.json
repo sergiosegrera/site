@@ -66,6 +66,20 @@
   "travels": {
     "title": "Travel Log",
     "subtitle": "A digital travel log of places I have visited. Pictures by me.",
+    "2026": {
+      "co": {
+        "name": "Bogotá, Medellín & Cartagena",
+        "d": "Coffee, mountains & color"
+      },
+      "pe": {
+        "name": "Lima, Cusco & Machu Picchu",
+        "d": "Andes, ruins & ceviche"
+      },
+      "mx": {
+        "name": "Mexico City, Oaxaca & Chichén Itzá",
+        "d": "Ruins, mezcal & color"
+      }
+    },
     "2025": {
       "gr": {
         "name": "Athens & Ios",

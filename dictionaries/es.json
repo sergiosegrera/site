@@ -66,6 +66,20 @@
   "travels": {
     "title": "Diario de Viajes",
     "subtitle": "Un diario de viajes digital de lugares que he visitado. Fotos por mí.",
+    "2026": {
+      "co": {
+        "name": "Bogotá, Medellín y Cartagena",
+        "d": "Café, montañas y color"
+      },
+      "pe": {
+        "name": "Lima, Cusco y Machu Picchu",
+        "d": "Andes, ruinas y ceviche"
+      },
+      "mx": {
+        "name": "Ciudad de México, Oaxaca y Chichén Itzá",
+        "d": "Ruinas, mezcal y color"
+      }
+    },
     "2025": {
       "gr": {
         "name": "Atenas e Ios",

@@ -1,4 +1,18 @@
 const travels = {
+  2026: [
+    {
+      code: "co",
+      picture_count: 9,
+    },
+    {
+      code: "pe",
+      picture_count: 5,
+    },
+    {
+      code: "mx",
+      picture_count: 4,
+    },
+  ],
   2025: [
     {
       code: "gr",
