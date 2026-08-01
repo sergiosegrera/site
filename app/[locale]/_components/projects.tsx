@@ -46,9 +46,10 @@ export const ProjectItem = ({
   });
 
   return (
-    <Link href={project.url} target="_blank">
-      <li
-        id={project.slug}
+    <li id={project.slug}>
+      <Link
+        href={project.url}
+        target="_blank"
         className="grid grid-cols-[48px_1fr] gap-3 items-start group"
       >
         <HoverImage
@@ -69,7 +70,7 @@ export const ProjectItem = ({
           </div>
           <p className="text-xs text-slate-500">{t("description")}</p>
         </div>
-      </li>
-    </Link>
+      </Link>
+    </li>
   );
 };
