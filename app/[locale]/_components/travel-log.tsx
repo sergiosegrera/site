@@ -17,7 +17,7 @@ export default function TravelLog() {
     <section id="travel-log">
       <Link href="/travels" className="flex gap-3">
         <Image
-          src="/static/earth.gif"
+          src="/static/earth.webp"
           width={64}
           height={64}
           alt="Rotating Earth"
