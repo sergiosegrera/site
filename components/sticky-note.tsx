@@ -65,8 +65,9 @@ export default function StickyNote({
       >
         {children}
       </div>
-      {/* Sticky note folded corner */}
+      {/* biome-ignore lint/a11y/useMediaCaption: decorative click sound, no speech to caption */}
       <audio ref={audioRef} src="/static/sticky-note.mp3" />
+      {/* Sticky note folded corner */}
       <div className="h-6 flex w-full">
         <div
           className={cn(

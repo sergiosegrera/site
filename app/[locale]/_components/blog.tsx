@@ -46,8 +46,8 @@ function BlogItem({ post }: { post: (typeof posts)[number] }) {
   });
 
   return (
-    <Link href={`/blog/${post.slug}`}>
-      <li key={post.slug} id={post.slug} className="flex flex-col gap-0.5">
+    <li id={post.slug}>
+      <Link href={`/blog/${post.slug}`} className="flex flex-col gap-0.5">
         <h3
           className="text-xs font-medium"
           ref={titleRef}
@@ -69,7 +69,7 @@ function BlogItem({ post }: { post: (typeof posts)[number] }) {
             timeZone: "UTC",
           })}
         </time>
-      </li>
-    </Link>
+      </Link>
+    </li>
   );
 }

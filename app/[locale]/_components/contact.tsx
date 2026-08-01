@@ -1,13 +1,9 @@
 "use client";
 
-import {
-  CalendarCheck2Icon,
-  LucideGithub,
-  LucideLinkedin,
-  LucideMail,
-} from "lucide-react";
-import { useScramble } from "use-scramble";
+import { CalendarCheck2Icon, LucideMail } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { useScramble } from "use-scramble";
+import { GithubIcon, LinkedinIcon } from "@/components/brand-icons";
 import QuoteStickyNote from "@/components/quote-sticky-note";
 
 export default function Contact() {
@@ -38,7 +34,7 @@ export default function Contact() {
             </a>
           </li>
           <li id="linkedin" className="flex flex-row gap-1 items-center group">
-            <LucideLinkedin
+            <LinkedinIcon
               className="inline-block mr-1 text-slate-400"
               size={12}
             />
@@ -50,7 +46,7 @@ export default function Contact() {
             </a>
           </li>
           <li id="github" className="flex flex-row gap-1 items-center group">
-            <LucideGithub
+            <GithubIcon
               className="inline-block mr-1 text-slate-400"
               size={12}
             />
