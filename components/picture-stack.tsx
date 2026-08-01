@@ -295,7 +295,7 @@ export function PictureStackProvider({ children }: { children: ReactNode }) {
                 >
                   {pictures.map((pic, index) => (
                     <div
-                      key={`${pic.src}-${index}`}
+                      key={pic.src}
                       className="relative min-w-full h-full flex-shrink-0"
                     >
                       <Image
@@ -342,7 +342,7 @@ export function PictureStackProvider({ children }: { children: ReactNode }) {
                   <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-10">
                     {pictures.map((picture, index) => (
                       <button
-                        key={`${picture.src}-${index}`}
+                        key={picture.src}
                         type="button"
                         onClick={(e) => {
                           e.stopPropagation();

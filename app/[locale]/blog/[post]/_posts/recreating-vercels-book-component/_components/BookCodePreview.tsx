@@ -1,5 +1,5 @@
-import CodePreview from "@/components/code-preview";
 import { CodeIcon } from "lucide-react";
+import CodePreview from "@/components/code-preview";
 import Book from "./Book";
 
 const TABS = [

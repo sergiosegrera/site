@@ -1,15 +1,15 @@
 "use client";
 
 import hljs from "highlight.js/lib/core";
-import typescript from "highlight.js/lib/languages/typescript";
 import javascript from "highlight.js/lib/languages/javascript";
+import typescript from "highlight.js/lib/languages/typescript";
 import html from "highlight.js/lib/languages/xml";
 import xml from "highlight.js/lib/languages/xml";
 import "highlight.js/styles/github.css";
 import { CopyIcon } from "lucide-react";
 import { useMemo, useState } from "react";
-import Button from "./button";
 import { cn } from "@/lib/utils";
+import Button from "./button";
 
 hljs.registerLanguage("tsx", typescript);
 hljs.registerLanguage("ts", typescript);
