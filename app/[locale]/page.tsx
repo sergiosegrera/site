@@ -1,46 +1,45 @@
-import { LucideMapPin } from "lucide-react";
-import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import Header from "@/components/header";
+import { AUTHOR, jsonLd, SITE_URL } from "@/lib/site";
 import Bio from "./_components/bio";
 import Blog from "./_components/blog";
 import Contact from "./_components/contact";
-import LanguageSwitcher from "./_components/language-switcher";
 import Projects from "./_components/projects";
 import TravelLog from "./_components/travel-log";
 
-export default async function Home() {
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const t = await getTranslations("home");
+
+  const person = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: AUTHOR.name,
+    url: `${SITE_URL}/${locale}`,
+    image: `${SITE_URL}/static/profile.webp`,
+    jobTitle: t("title"),
+    description: t("siteDescription"),
+    email: `mailto:${AUTHOR.email}`,
+    sameAs: [AUTHOR.github, AUTHOR.linkedin],
+  };
 
   return (
     <main className="md:w-[600px] mx-auto my-8 md:my-16 px-4 flex flex-col gap-12">
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD must be raw; escaped by `jsonLd`
+        dangerouslySetInnerHTML={{ __html: jsonLd(person) }}
+      />
+
       {/* Header */}
-      <nav id="header" className="grid grid-cols-[64px_1fr_auto] gap-4 w-full">
-        {/* <div id="logo" className="w-16 h-16 bg-slate-200 rounded-lg"></div> */}
-        <Image
-          src="/static/profile.webp"
-          alt="profile"
-          width={64}
-          height={64}
-          className="rounded-lg shadow-md"
-          priority
-          placeholder="blur"
-          blurDataURL="/static/profile-blur.webp"
-        />
-        <div id="info" className="flex flex-col h-full justify-between gap-1">
-          <h1 className="text-base font-medium">Sergio Segrera</h1>
-          <p className="text-xs text-slate-500">{t("title")}</p>
-          <p className="text-xs text-slate-500 flex flex-row items-center">
-            <LucideMapPin
-              className="inline-block mr-1 text-slate-400"
-              size={12}
-            />
-            {t("location")}
-          </p>
-        </div>
-        <div id="lang-switcher" className="flex justify-end">
-          <LanguageSwitcher />
-        </div>
-      </nav>
+      <Header asH1 />
+
       {/* Bio */}
       <Bio />
 

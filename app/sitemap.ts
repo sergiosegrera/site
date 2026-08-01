@@ -1,42 +1,37 @@
 import type { MetadataRoute } from "next";
-import { locales } from "@/i18n/routing";
+import { routing } from "@/i18n/routing";
+import { absoluteLanguageAlternates, SITE_URL } from "@/lib/site";
 import { posts } from "./[locale]/blog/[post]/_posts/data";
 
+/**
+ * One entry per page rather than one per locale: the translations are declared
+ * via `alternates.languages` so crawlers treat them as a single page in four
+ * languages instead of four unrelated pages.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://sergiosegrera.com";
+  const canonical = (path: string) =>
+    `${SITE_URL}/${routing.defaultLocale}${path}`;
 
-  const pages: MetadataRoute.Sitemap = locales.map((locale) => ({
-    url: `${baseUrl}/${locale}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly" as const,
-    priority: 1,
-  }));
-
-  const travels: MetadataRoute.Sitemap = locales.map((locale) => ({
-    url: `${baseUrl}/${locale}/travels`,
-    lastModified: new Date(),
-    changeFrequency: "monthly" as const,
-    priority: 1,
-  }));
-
-  const blogs: MetadataRoute.Sitemap = posts.flatMap((post) =>
-    locales.map((locale) => ({
-      url: `${baseUrl}/${locale}/blog/${post.slug}`,
-      lastModified: new Date(),
-      changeFrequency: "yearly" as const,
-      priority: 0.8,
-    })),
+  const newestPost = posts.reduce((newest, post) =>
+    post.date > newest.date ? post : newest,
   );
 
   return [
-    ...pages,
-    ...blogs,
-    ...travels,
     {
-      url: `${baseUrl}`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: 1,
+      url: canonical(""),
+      lastModified: new Date(newestPost.date),
+      alternates: { languages: absoluteLanguageAlternates("") },
     },
+    {
+      url: canonical("/travels"),
+      alternates: { languages: absoluteLanguageAlternates("/travels") },
+    },
+    ...posts.map((post) => ({
+      url: canonical(`/blog/${post.slug}`),
+      lastModified: new Date(post.date),
+      alternates: {
+        languages: absoluteLanguageAlternates(`/blog/${post.slug}`),
+      },
+    })),
   ];
 }

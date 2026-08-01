@@ -150,5 +150,10 @@
         "d": "Restorative"
       }
     }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "This page doesn't exist, or it has moved.",
+    "backHome": "Back home"
   }
 }

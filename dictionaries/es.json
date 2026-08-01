@@ -150,5 +150,10 @@
         "d": "Reparador"
       }
     }
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "description": "Esta página no existe o ha sido movida.",
+    "backHome": "Volver al inicio"
   }
 }

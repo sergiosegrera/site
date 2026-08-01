@@ -1,13 +1,14 @@
 import "./../globals.css";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { notFound } from "next/navigation";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
-import { Analytics } from "@vercel/analytics/next";
-import { SpeedInsights } from "@vercel/speed-insights/next";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 
 import { routing } from "@/i18n/routing";
-import { getTranslations } from "next-intl/server";
+import { AUTHOR, languageAlternates, SITE_URL } from "@/lib/site";
 
 const averia = localFont({
   src: [
@@ -49,14 +50,44 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
-export async function generateMetadata(): Promise<Metadata> {
-  const t = await getTranslations("home");
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}): Promise<Metadata> {
+  const { locale } = await params;
+  // Passing `locale` explicitly keeps metadata statically renderable — without
+  // it `next-intl` falls back to reading headers, which opts the route out.
+  const t = await getTranslations({ locale, namespace: "home" });
 
   return {
-    title: t("siteName"),
+    metadataBase: new URL(SITE_URL),
+    title: {
+      default: t("siteName"),
+      template: `%s · ${t("siteName")}`,
+    },
     description: t("siteDescription"),
-    authors: [{ name: "Sergio Segrera" }],
-    creator: "Sergio Segrera",
+    authors: [{ name: AUTHOR.name, url: SITE_URL }],
+    creator: AUTHOR.name,
+    appleWebApp: { title: AUTHOR.name },
+    alternates: {
+      canonical: `/${locale}`,
+      languages: languageAlternates(),
+    },
+    openGraph: {
+      type: "website",
+      url: `/${locale}`,
+      siteName: t("siteName"),
+      title: t("siteName"),
+      description: t("siteDescription"),
+      locale,
+      alternateLocale: routing.locales.filter((l) => l !== locale),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: t("siteName"),
+      description: t("siteDescription"),
+    },
   };
 }
 
@@ -73,14 +104,13 @@ export default async function RootLayout({
     notFound();
   }
 
+  setRequestLocale(locale);
+
   return (
     <html lang={locale}>
-      <head>
-        <meta name="apple-mobile-web-app-title" content="Sergio Segrera" />
-      </head>
-      <Analytics />
       <body className={averia.className}>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <Analytics />
         <SpeedInsights />
       </body>
     </html>

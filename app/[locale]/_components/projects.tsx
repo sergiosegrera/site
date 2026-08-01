@@ -1,25 +1,11 @@
 "use client";
 
-import { useScramble } from "use-scramble";
-import { useTranslations } from "next-intl";
-import HoverImage from "@/components/hover-image";
-import Link from "next/link";
 import { LucideExternalLink } from "lucide-react";
-
-const projects = [
-  {
-    slug: "spendo-budget",
-    url: "https://spendobudget.com",
-  },
-  {
-    slug: "claycon",
-    url: "https://claycon.app",
-  },
-  {
-    slug: "mesmaxillos",
-    url: "https://mesmaxillos.com",
-  },
-];
+import Link from "next/link";
+import { useTranslations } from "next-intl";
+import { useScramble } from "use-scramble";
+import HoverImage from "@/components/hover-image";
+import { projects } from "@/lib/projects";
 
 export default function Projects() {
   const t = useTranslations("home");
@@ -68,7 +54,7 @@ export const ProjectItem = ({
         <HoverImage
           blurredImage={`/static/${project.slug}-blur.png`}
           image={`/static/${project.slug}.png`}
-          alt={project.slug}
+          alt={t("title")}
         />
         <div className="flex flex-col gap-0.5">
           <div className="flex items-center gap-1">
