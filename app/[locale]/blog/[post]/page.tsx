@@ -1,13 +1,16 @@
-import { LucideMapPin } from "lucide-react";
-import Image from "next/image";
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
+import Header from "@/components/header";
 import MdxLayout from "@/components/mdx-layout";
-import { Link } from "@/i18n/navigation";
 import { routing } from "@/i18n/routing";
+import { AUTHOR, jsonLd, languageAlternates, SITE_URL } from "@/lib/site";
 import Contact from "../../_components/contact";
-import LanguageSwitcher from "../../_components/language-switcher";
 import { posts } from "./_posts/data";
+
+// Every post is known at build time, so anything else is a 404 rather than an
+// on-demand render attempt.
+export const dynamicParams = false;
 
 export function generateStaticParams() {
   return routing.locales.flatMap((locale) =>
@@ -19,14 +22,38 @@ export async function generateMetadata({
   params,
 }: {
   params: Promise<{ locale: string; post: string }>;
-}) {
-  const { post } = await params;
+}): Promise<Metadata> {
+  const { locale, post } = await params;
 
-  const t = await getTranslations(`blog.${post}`);
+  const t = await getTranslations({ locale, namespace: `blog.${post}` });
+  const meta = posts.find((p) => p.slug === post);
+
+  const title = t("title");
+  const description = t("description");
+  const path = `/blog/${post}`;
 
   return {
-    title: `${t("title")}`,
-    description: `${t("description")}`,
+    title,
+    description,
+    alternates: {
+      canonical: `/${locale}${path}`,
+      languages: languageAlternates(path),
+    },
+    openGraph: {
+      type: "article",
+      url: `/${locale}${path}`,
+      title,
+      description,
+      locale,
+      alternateLocale: routing.locales.filter((l) => l !== locale),
+      publishedTime: meta?.date,
+      authors: [AUTHOR.name],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 
@@ -36,55 +63,54 @@ export default async function BlogPage({
   params: Promise<{ locale: string; post: string }>;
 }) {
   const { locale, post } = await params;
+  setRequestLocale(locale);
 
-  const t = await getTranslations("home");
-
-  try {
-    const Content = (await import(`./_posts/${post}/${locale}.mdx`)).default;
-    return (
-      <main className="md:w-[600px] mx-auto my-8 md:my-16 px-4 flex flex-col gap-12">
-        <nav
-          id="header"
-          className="grid grid-cols-[64px_1fr_auto] gap-4 w-full"
-        >
-          <Link href="/">
-            <Image
-              src="/static/profile.webp"
-              alt="profile"
-              width={64}
-              height={64}
-              className="rounded-lg shadow-md"
-              priority
-              placeholder="blur"
-              blurDataURL="/static/profile-blur.webp"
-            />
-          </Link>
-          <div id="info" className="flex flex-col h-full justify-between gap-1">
-            <h1 className="text-base font-medium">
-              <Link href="/">Sergio Segrera</Link>
-            </h1>
-            <p className="text-xs text-slate-500">{t("title")}</p>
-            <p className="text-xs text-slate-500 flex flex-row items-center">
-              <LucideMapPin
-                className="inline-block mr-1 text-slate-400"
-                size={12}
-              />
-              {t("location")}
-            </p>
-          </div>
-          <div id="lang-switcher" className="flex justify-end">
-            <LanguageSwitcher />
-          </div>
-        </nav>
-        <MdxLayout>
-          <Content />
-        </MdxLayout>
-
-        <Contact />
-      </main>
-    );
-  } catch (error) {
-    console.error(error);
+  const meta = posts.find((p) => p.slug === post);
+  if (!meta) {
     notFound();
   }
+
+  const t = await getTranslations(`blog.${post}`);
+
+  let Content: React.ComponentType;
+  try {
+    Content = (await import(`./_posts/${post}/${locale}.mdx`)).default;
+  } catch (error) {
+    console.error(
+      `Missing MDX for post "${post}" in locale "${locale}"`,
+      error,
+    );
+    notFound();
+  }
+
+  const article = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: t("title"),
+    description: t("description"),
+    datePublished: meta.date,
+    dateModified: meta.date,
+    inLanguage: locale,
+    author: { "@type": "Person", name: AUTHOR.name, url: SITE_URL },
+    publisher: { "@type": "Person", name: AUTHOR.name, url: SITE_URL },
+    mainEntityOfPage: `${SITE_URL}/${locale}/blog/${post}`,
+  };
+
+  return (
+    <main className="md:w-[600px] mx-auto my-8 md:my-16 px-4 flex flex-col gap-12">
+      <script
+        type="application/ld+json"
+        // biome-ignore lint/security/noDangerouslySetInnerHtml: JSON-LD must be raw; escaped by `jsonLd`
+        dangerouslySetInnerHTML={{ __html: jsonLd(article) }}
+      />
+
+      <Header />
+
+      <MdxLayout>
+        <Content />
+      </MdxLayout>
+
+      <Contact />
+    </main>
+  );
 }

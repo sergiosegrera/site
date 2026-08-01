@@ -1,7 +1,7 @@
 "use client";
 
 import { CalendarIcon } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useFormatter, useTranslations } from "next-intl";
 import { useScramble } from "use-scramble";
 import { Link } from "@/i18n/navigation";
 import { posts } from "../blog/[post]/_posts/data";
@@ -38,6 +38,7 @@ export default function Blog() {
 
 function BlogItem({ post }: { post: (typeof posts)[number] }) {
   const t = useTranslations(`blog.${post.slug}`);
+  const format = useFormatter();
 
   const { ref: titleRef, replay: titleReplay } = useScramble({
     text: t("title"),
@@ -59,10 +60,13 @@ function BlogItem({ post }: { post: (typeof posts)[number] }) {
           dateTime={post.date}
         >
           <CalendarIcon size={12} />
-          {new Date(post.date).toLocaleDateString("en-US", {
+          {/* `timeZone: "UTC"` matters: "2025-06-28" parses as UTC midnight, so
+              formatting it in any negative-offset zone renders the previous day. */}
+          {format.dateTime(new Date(post.date), {
             year: "numeric",
             month: "long",
             day: "numeric",
+            timeZone: "UTC",
           })}
         </time>
       </li>

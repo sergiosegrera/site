@@ -150,5 +150,10 @@
         "d": "Ressourçant"
       }
     }
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "description": "Cette page n'existe pas ou a été déplacée.",
+    "backHome": "Retour à l'accueil"
   }
 }

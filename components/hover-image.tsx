@@ -14,10 +14,9 @@ export default function HoverImage({
       <Image src={image} alt={alt} fill className="object-cover" />
       <Image
         src={blurredImage}
-        alt={alt}
+        alt=""
         fill
         className="object-cover group-hover:opacity-0 transition-opacity duration-300"
-        priority
       />
     </div>
   );
