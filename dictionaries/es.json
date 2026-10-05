@@ -39,6 +39,10 @@
     }
   },
   "projects": {
+    "setdle": {
+      "title": "Setdle",
+      "description": "Un rompecabezas diario y gratuito basado en el juego de cartas Set. Encuentra los tres sets escondidos entre las 12 cartas del día lo más rápido posible, antes de cometer tres errores."
+    },
     "spendo-budget": {
       "title": "Spendo Budget",
       "description": "Una aplicación de presupuestos impulsada por IA que se conecta a tus cuentas bancarias para categorizar automáticamente los gastos y crear presupuestos personalizados. Proporciona información en tiempo real, seguimiento de tendencias e informes mensuales para ayudarte a mantener el control de tus finanzas sin esfuerzo."

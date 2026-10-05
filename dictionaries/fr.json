@@ -39,6 +39,10 @@
     }
   },
   "projects": {
+    "setdle": {
+      "title": "Setdle",
+      "description": "Un casse-tête quotidien et gratuit inspiré du jeu de cartes Set. Trouvez les trois sets cachés parmi les 12 cartes du jour le plus vite possible, avant trois erreurs."
+    },
     "spendo-budget": {
       "title": "Spendo Budget",
       "description": "Une application de budgétisation alimentée par l'IA qui se connecte à vos comptes bancaires pour catégoriser automatiquement les dépenses et créer des budgets personnalisés. Elle fournit des insights en temps réel, un suivi des tendances et des rapports mensuels pour vous aider à gérer vos finances sans effort."
