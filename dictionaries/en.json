@@ -39,6 +39,10 @@
     }
   },
   "projects": {
+    "setdle": {
+      "title": "Setdle",
+      "description": "A free daily puzzle based on the card game Set. Find the three sets hidden in each day's 12 cards as fast as you can, before three strikes."
+    },
     "spendo-budget": {
       "title": "Spendo Budget",
       "description": "An AI-powered budgeting app that connects to your bank accounts to automatically categorize spending and build personalized budgets. It provides real-time insights, trend tracking, and monthly reports to help you stay on top of your finances effortlessly."

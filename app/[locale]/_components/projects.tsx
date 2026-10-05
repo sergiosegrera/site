@@ -1,10 +1,10 @@
 "use client";
 
 import { LucideExternalLink } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import { useTranslations } from "next-intl";
 import { useScramble } from "use-scramble";
-import HoverImage from "@/components/hover-image";
 import { projects } from "@/lib/projects";
 
 export default function Projects() {
@@ -50,13 +50,16 @@ export const ProjectItem = ({
       <Link
         href={project.url}
         target="_blank"
-        className="grid grid-cols-[48px_1fr] gap-3 items-start group"
+        className="grid grid-cols-[48px_1fr] gap-3 items-start"
       >
-        <HoverImage
-          blurredImage={`/static/${project.slug}-blur.png`}
-          image={`/static/${project.slug}.png`}
-          alt={t("title")}
-        />
+        <div className="relative w-[48px] h-[48px] rounded-lg shadow-sm overflow-hidden">
+          <Image
+            src={`/static/${project.slug}.png`}
+            alt={t("title")}
+            fill
+            className="object-cover"
+          />
+        </div>
         <div className="flex flex-col gap-0.5">
           <div className="flex items-center gap-1">
             <h3
