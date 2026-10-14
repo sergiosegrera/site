@@ -10,40 +10,10 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { AUTHOR, languageAlternates, SITE_URL } from "@/lib/site";
 
-const averia = localFont({
-  src: [
-    {
-      path: "../fonts/Averia-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../fonts/Averia-Bold.ttf",
-      weight: "700",
-      style: "normal",
-    },
-    {
-      path: "../fonts/Averia-Italic.ttf",
-      weight: "400",
-      style: "italic",
-    },
-    {
-      path: "../fonts/Averia-BoldItalic.ttf",
-      weight: "700",
-      style: "italic",
-    },
-    {
-      path: "../fonts/Averia-Light.ttf",
-      weight: "300",
-      style: "normal",
-    },
-    {
-      path: "../fonts/Averia-LightItalic.ttf",
-      weight: "300",
-      style: "italic",
-    },
-  ],
-  variable: "--font-averia",
+const paperMono = localFont({
+  src: "../fonts/PaperMono.ttf",
+  weight: "100 800",
+  variable: "--font-paper-mono",
 });
 
 export function generateStaticParams() {
@@ -108,7 +78,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={averia.className}>
+      <body className={paperMono.className}>
         <NextIntlClientProvider>{children}</NextIntlClientProvider>
         <Analytics />
         <SpeedInsights />
